@@ -1,8 +1,28 @@
 .main {
-  font-style: monospace;
-  margin-left: 20px;
+  font-family: monospace;
+  margin-left: 0px;
 }
 
 .p1 {
-  font-style: monospace;
+  font-family: monospace;
+}
+
+.board {
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.divboard {
+  padding-top: 5px;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a {
+  color:black;
+}
+
+a:hover {
+  color: gray;
 }
