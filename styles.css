@@ -46,18 +46,16 @@ a:hover {
 
 .pagenumber {
   font-family: 'Courier New', Courier, monospace;
-  position: fixed;
+  position: absolute;
   bottom: 0;
-  left: 0;
-  width: 100%;
   text-align: left;
-  padding: 10px;
 }
 
 .image-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); 
   gap: 10px; 
+  width: 50%;
 }
 
 .image-grid img {
