@@ -33,6 +33,7 @@ window.onload = function() {
   board = document.getElementById("board");
   board.height = rows * cellsize;
   board.width = cols * cellsize;
+  
   // Get the 2D drawing context of the canvas
   ctx = board.getContext("2d");
 

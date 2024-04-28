@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport", content="width=device-width, initial-scale=1.0">
+        <title>luzer.art</title>
+        <link rel="stylesheet" href="styles.css" />
+        <script src="script.js"></script>
+    </head>
+
+    <body onload="onPageLoaded()">
+        <div class="main">
+            <h1><a href="index.html">luzer.town</a></h1>
+            <b class="subheading">art:<br></b>
+            <div class="linebreak">
+                <b>&#9472;&#9472;&#9472;&#9472;</b>
+            </div>
+            <div>
+                <p>a small repository of my art (stuff not here will be on my insta)</p>
+            </div>
+            <body>
+                <div class="image-grid">
+                  <img src="art/fall.png" alt="fall" onclick="showLargeImage('art/fall.png')">
+                  <img src="art/nurture.png" alt="nurture" onclick="showLargeImage('art/nurture.png')">
+                  <img src="art/dissociation.png" alt="dissociation" onclick="showLargeImage('art/dissociation.png')">
+                  <img src="art/I like the way you kiss me.png" alt="iltwykm" onclick="showLargeImage('art/I like the way you kiss me.png')">
+                  <img src="art/noise.png" alt="noise" onclick="showLargeImage('art/noise.png')">
+                  <img src="art/marble.png" alt="marble" onclick="showLargeImage('art/marble.png')">
+                </div>
+
+                <div class="overlay" id="overlay" onclick="hideLargeImage()">
+                    <img src="" alt="" id="largeImage">
+                </div>
+            <div class="pagenumber">
+                <p>[01]</p>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

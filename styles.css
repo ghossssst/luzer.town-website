@@ -1,10 +1,14 @@
+body {
+  background-color:whitesmoke ;
+}
+
 .main {
-  font-family: monospace;
+  font-family: 'Courier New', Courier, monospace;
   margin-left: 0px;
 }
 
 .p1 {
-  font-family: monospace;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .board {
@@ -12,7 +16,7 @@
 }
 
 .divboard {
-  padding-top: 5px;
+  padding-top: 25px;
 }
 
 a:link {
@@ -25,4 +29,57 @@ a {
 
 a:hover {
   color: gray;
+}
+
+.directorylink:before{
+  content: "[\2606";
+}
+
+.directorylink:hover::before{
+  color: gray;
+  content: "[\2605";
+}
+
+.linebreak {
+  padding-bottom: 10px;
+}
+
+.pagenumber {
+  font-family: 'Courier New', Courier, monospace;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 10px; 
+}
+
+.image-grid img {
+  width: 100%; 
+  height: auto;
+  cursor: pointer; 
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); 
+  z-index: 1000; 
+  text-align: center;
+}
+
+.overlay img {
+  max-width: 90%;
+  max-height: 80%;
+  padding-top: 5%;
 }
