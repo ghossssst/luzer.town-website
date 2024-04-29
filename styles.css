@@ -53,9 +53,9 @@ a:hover {
 
 .image-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); 
+  grid-template-columns: repeat(4, 1fr); 
   gap: 10px; 
-  width: 50%;
+  width: 100%;
 }
 
 .image-grid img {
