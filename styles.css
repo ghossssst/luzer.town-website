@@ -81,3 +81,52 @@ a:hover {
   max-height: 80%;
   padding-top: 5%;
 }
+
+.cube {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 100px auto;
+  animation: rotateCube 5s linear infinite;
+  transform-style: preserve-3d;
+}
+
+.face {
+  position: absolute;
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+}
+
+  .face.front {
+    transform: translateZ(50px);
+  }
+
+  .face.back {
+    transform: rotateY(180deg) translateZ(50px);
+  }
+
+  .face.left {
+    transform: rotateY(-90deg) translateZ(50px);
+  }
+
+  .face.right {
+    transform: rotateY(90deg) translateZ(50px);
+  }
+
+  .face.top {
+    transform: rotateX(90deg) translateZ(50px);
+  }
+
+  .face.bottom {
+    transform: rotateX(-90deg) translateZ(50px);
+  }
+
+@keyframes rotateCube {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
