@@ -4,7 +4,12 @@ body {
 
 .main {
   font-family: 'Courier New', Courier, monospace;
-  margin-left: 0px;
+  margin-left: 20px;
+}
+
+.text {
+  z-index: 1;
+  width: 200px;
 }
 
 .p1 {
@@ -82,44 +87,52 @@ a:hover {
   padding-top: 5%;
 }
 
+
+.cube-container {
+  z-index: 2;
+  float: left; 
+  width: 20px;
+  height: 20px;
+}
+
 .cube {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  margin: 100px auto;
+  position: relative; 
+  width: 20px;
+  height: 20px;
+  margin: 0px; 
   animation: rotateCube 5s linear infinite;
   transform-style: preserve-3d;
 }
 
 .face {
   position: absolute;
-  border: 1px solid black;
-  width: 100px;
-  height: 100px;
+  border: 1px solid rgba(0, 0, 0, 0.38);
+  width: 20px;
+  height: 20px;
 }
 
   .face.front {
-    transform: translateZ(50px);
+    transform: translateZ(10px);
   }
 
   .face.back {
-    transform: rotateY(180deg) translateZ(50px);
+    transform: rotateY(180deg) translateZ(10px);
   }
 
   .face.left {
-    transform: rotateY(-90deg) translateZ(50px);
+    transform: rotateY(-90deg) translateZ(10px);
   }
 
   .face.right {
-    transform: rotateY(90deg) translateZ(50px);
+    transform: rotateY(90deg) translateZ(10px);
   }
 
   .face.top {
-    transform: rotateX(90deg) translateZ(50px);
+    transform: rotateX(90deg) translateZ(10px);
   }
 
   .face.bottom {
-    transform: rotateX(-90deg) translateZ(50px);
+    transform: rotateX(-90deg) translateZ(10px);
   }
 
 @keyframes rotateCube {
