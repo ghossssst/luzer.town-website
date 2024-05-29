@@ -7,10 +7,15 @@ body {
 .main {
   font-family: 'Courier New', Courier, monospace;
   margin-left: 20px;
+  margin-right: 300px;
 }
 
 .lowerlinebreak {
   margin: 0px;
+}
+
+.directorylink {
+  width: 0px;
 }
 
 .visual {
