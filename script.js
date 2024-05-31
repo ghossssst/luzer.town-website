@@ -30,6 +30,3 @@ document.addEventListener("DOMContentLoaded", function() {
           console.error('Error fetching IP address:', error);
       });
 });
-
-let el = document.getElementById('visual5');
-el.style.setProperty('--rand', Math.random());
