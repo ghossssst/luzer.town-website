@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>luzer.art</title>
+        <link rel="stylesheet" href="../css/styles.css" />
+        <script src="../js/script.js"></script>
+    </head>
+
+    <body onload="onPageLoaded()">
+        <div class="sidebar">
+            <div class="cube-container">
+                <div class="cube">
+                    <div class="face front"></div>
+                    <div class="face back"></div>
+                    <div class="face left"></div>
+                    <div class="face right"></div>
+                    <div class="face top"></div>
+                    <div class="face bottom"></div>
+                </div>
+            </div>
+            <b class="subheading">internal directory</b>
+            <div class="linebreak">
+                <b>&#9472;&#9472;&#9472;&#9472;</b>
+            </div>
+            <p class="directorylink"><a href="../pages/snake.html">]........snake</a></p>
+            <p class="directorylink"><a href="../pages/art.html">]........art</a></p>
+            <p class="directorylink"><a href="../pages/projects.html">]........projects</a></p>
+            <p class="directorylink"><a href="../pages/portfolio.html">]........portfolio</a></p>
+            <p class="directorylink"><a href="../pages/obituary.html">]........obituary</a></p>
+            <div class="lowerlinebreak">
+                <b>&#9472;&#9472;</b>
+            </div>
+        </div>
+        
+        <div class="main">
+            <p class="ipaddress">------------------@-<a id="ip-address">loading...</a></p>
+            <h1><a href="../index.html">luzer.town</a></h1>
+            <b class="subheading">art:<br></b>
+            <div class="linebreak">
+                <b>&#9472;&#9472;&#9472;&#9472;</b>
+            </div>
+            <div>
+                <p style="margin-bottom: 0px;">contact me via <span id="email" class="underlinedlink" onclick="copyToClipboard('luzertown@gmail.com')">luzertown@gmail.com</span> for commissions</p>
+                <p style="margin-bottom: 0px;">---- 2024:</p>
+            </div>
+            <div class="image-grid">
+                <img class="shadow" src="../img/low res/fallowres.png" alt="fall" onclick="showLargeImage('../img/fall.png')">
+                <img class="shadow" src="../img/low res/nurturelowres.png" alt="nurture" onclick="showLargeImage('../img/nurture.png')">
+                <img class="shadow" src="../img/low res/vertigolowres.png" alt="nurture" onclick="showLargeImage('../img/vertigo.png')">
+                <img class="shadow" src="../img/low res/dissociationlowres.png" alt="dissociation" onclick="showLargeImage('../img/dissociation.png')">
+                <img class="shadow" src="../img/low res/Cultslowres.png" alt="dissociation" onclick="showLargeImage('../img/cults.png')">
+                <img class="shadow" src="../img/low res/I like the way you kiss me lowres.png" alt="iltwykm" onclick="showLargeImage('../img/I like the way you kiss me.png')">
+                <img class="shadow" src="../img/low res/noiselowres.png" alt="noise" onclick="showLargeImage('../img/noise.png')">
+                <img class="shadow" src="../img/low res/marblelowres.png" alt="marble" onclick="showLargeImage('../img/marble.png')">
+                <img class="shadow" src="../img/low res/birds with broken wings low res.png" alt="marble" onclick="showLargeImage('../img/birds with broken wings.png')">
+                <img class="shadow" src="../img/low res/computer black low res.png" alt="marble" onclick="showLargeImage('../img/computer black.png')">
+                <img class="shadow" src="../img/low res/powerlowres.png" alt="marble" onclick="showLargeImage('../img/power.png')">
+                <img class="shadow" src="../img/low res/tranquil lowres.png" alt="marble" onclick="showLargeImage('../img/tranquil.png')">
+            </div>
+
+            <div id="progress-bar-container">
+                <div id="progress-bar"></div>
+            </div>
+
+            <div class="overlay" id="overlay" onclick="hideLargeImage()">
+                <img src="" alt="" id="largeImage">
+            </div>
+            <p class="directorylink"><a href="https://www.instagram.com/lukezdesign/">]........view_more</a></p>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

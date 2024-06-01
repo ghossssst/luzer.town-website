@@ -36,6 +36,10 @@ body {
   font-family: 'Courier New', Courier, monospace;
 }
 
+.underlinedlink {
+  text-decoration: underline;
+}
+
 .underlinedlink:link {
   text-decoration: underline;
 }
@@ -76,6 +80,7 @@ a:link {
 }
 
 a {
+  transition: all 0.2s;
   color:#1f1f1f;
 }
 
@@ -91,6 +96,7 @@ a:hover {
 .directorylink:hover::before{
   color: gray;
   content: "[\2605";
+  transition: all 0.2s;
 }
 
 .linebreak {
@@ -189,3 +195,31 @@ a:hover {
     transform: rotateX(360deg) rotateY(360deg);
   }
 }
+
+.shadow {
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+}
+
+.shadow:hover {
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+#progress-bar-container {
+  width: 100%;
+  background-color: #f3f3f3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+#progress-bar {
+  height: 5px;
+  width: 0;
+  background-color: #4caf50;
+  text-align: center;
+  line-height: 5px;
+  color: white;
+}
+
