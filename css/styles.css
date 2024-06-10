@@ -136,8 +136,8 @@ a:hover {
 
 .overlay img {
   max-width: 90%;
-  max-height: 80%;
-  padding-top: 5%;
+  max-height: 96%;
+  padding-top: 1%;
 }
 
 .cube-container {
