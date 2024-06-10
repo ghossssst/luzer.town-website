@@ -96,7 +96,6 @@ a:hover {
 .directorylink:hover::before{
   color: gray;
   content: "[\2605";
-  transition: all 0.2s;
 }
 
 .linebreak {
