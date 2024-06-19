@@ -48,13 +48,13 @@ p {
 }
 
 .navbar li {
-    height: 40px;
-    display: block;
+    height: 35px;
     color: #181736;
     text-align: center;
     padding-right: 100px;
     text-decoration: none;
     float: right;
+    z-index: -1;
 }
 
 .navbar li a {
@@ -101,7 +101,7 @@ p {
 }
 
 .maindiv {
-    padding-top: 15px;
+    padding-top: 40px;
     display: block;
     margin: auto;
     width: 1180px;
