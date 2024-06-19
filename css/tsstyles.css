@@ -1,0 +1,169 @@
+body {
+    font-family: Helvetica, sans-serif;
+    margin: 25px;
+    color: #181736;
+}
+
+@property --gradientdark {
+    syntax: "<color>";
+    initial-value: rgba(69,128,194,1);
+    inherits: false;
+}
+
+@property --gradientmedian {
+    syntax: "<color>";
+    initial-value: rgba(82,160,223,1);
+    inherits: false;
+}
+
+@property --gradientlight {
+    syntax: "<color>";
+    initial-value: rgba(126,202,228,1);
+    inherits: false;
+}
+
+a, a:hover, a:visited, a:active {
+    color: #181736;
+    text-decoration: none;
+}
+
+p {
+    padding: 0px;
+    margin: 0px;
+}
+
+.navbar {
+    overflow: visible; 
+    position: relative;
+    z-index: 999; 
+}
+
+.navbar ul {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    list-style-type: none;
+    margin: 0;
+    padding-top: 10px;
+}
+
+.navbar li {
+    height: 40px;
+    display: block;
+    color: #181736;
+    text-align: center;
+    padding-right: 100px;
+    text-decoration: none;
+    float: right;
+}
+
+.navbar li a {
+    display: block;
+    color: #181736;
+    text-align: center;
+    text-decoration: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    border-radius: 15px;
+    margin-top: 10px;
+    font-weight: normal;
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    background: linear-gradient(320deg, var(--gradientdark) 0%, var(--gradientmedian) 37%, var(--gradientlight) 100%);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    --gradientdark: rgba(240,118,68,1);
+    --gradientmedian: rgba(232,127,69,1);
+    --gradientlight: rgba(239,207,113,1);
+    background: linear-gradient(320deg, var(--gradientdark) 0%, var(--gradientmedian) 37%, var(--gradientlight) 100%);
+    border-radius: 15px;
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.4);
+    transition: ease box-shadow 0.5s, --gradientlight 0.2s, --gradientmedian 0.7s, --gradientdark 1.5s;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.maindiv {
+    padding-top: 15px;
+    display: block;
+    margin: auto;
+    width: 1180px;
+}
+
+.tile-link {
+    display: inline-block;
+    margin: 20px;
+    border-radius: 15px;
+    background: linear-gradient(320deg, var(--gradientdark) 0%, var(--gradientmedian) 37%, var(--gradientlight) 100%);
+    width: 350px;
+    height: 500px;
+    position: relative;
+    top: 0;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    transition: top ease 0.5s, box-shadow 0.5s, --gradientlight 0.2s, --gradientmedian 0.7s, --gradientdark 1.5s;
+}
+
+.tile-link:hover {
+    --gradientdark: rgba(240,118,68,1);
+    --gradientmedian: rgba(232,127,69,1);
+    --gradientlight: rgba(239,207,113,1);
+    top: -20px;
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.tile-text {
+    font-family: Helvetica, sans-serif;
+    padding-top: 250px;
+    bottom: 0;
+    width: 350px;
+    height: 250px;
+    text-align: center;
+}
+
+.tile-text-p {
+    margin-left: 40px;
+    margin-right: 40px;
+    font-size: 16px;
+}
+
+.tile-text-h {
+    margin-left: 40px;
+    margin-right: 40px;
+    font-size: 29px;
+}
+
+.button {
+    color: whitesmoke;
+    background-color: #18173659;
+    border-style: none;
+    border-radius: 15px;
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    height: 40px;
+    width: 120px;
+    margin-top: 30px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.button:hover {
+    background-color: #1817363b;
+    box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.4);
+    transition: ease all 0.5s;
+}
