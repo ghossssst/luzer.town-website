@@ -4,6 +4,24 @@ body {
   background-color:whitesmoke ;
 }
 
+@property --gradientlight {
+  syntax: "<color>";
+  initial-value: rgba(196,123,140,0);
+  inherits: false;
+}
+
+@property --gradientmedian {
+  syntax: "<color>";
+  initial-value: rgba(251,0,90,0.18);
+  inherits: false;
+}
+
+@property --gradientdark {
+  syntax: "<color>";
+  initial-value: rgba(255,200,219,0);
+  inherits: false;
+}
+
 .main {
   font-family: 'Courier New', Courier, monospace;
   margin-left: 20px;
@@ -15,12 +33,21 @@ body {
   z-index: 10;
 }
 
+.subheading {
+  padding-bottom: 10px;
+}
+
+.text {
+  width: 200px;
+}
+
 .lowerlinebreak {
   margin: 0px;
 }
 
-.directorylink {
-  width: 0px;
+.directorybutton {
+  width: 200px;
+  height: 25px;
 }
 
 .ipaddress {
@@ -98,10 +125,6 @@ a:hover {
   content: "[\2605";
 }
 
-.linebreak {
-  padding-bottom: 10px;
-}
-
 .pagenumber {
   font-family: 'Courier New', Courier, monospace;
   position: absolute;
@@ -143,7 +166,7 @@ a:hover {
 .cube-container {
   margin-top: 25px;
   margin-right: 10px;
-  width: 200px;
+  width: 190px;
   height: 55px;
 }
 
@@ -162,29 +185,29 @@ a:hover {
   height: 30px;
 }
 
-  .face.front {
-    transform: translateZ(15px);
-  }
+.face.front {
+  transform: translateZ(15px);
+}
 
-  .face.back {
-    transform: rotateY(180deg) translateZ(15px);
-  }
+.face.back {
+  transform: rotateY(180deg) translateZ(15px);
+}
 
-  .face.left {
-    transform: rotateY(-90deg) translateZ(15px);
-  }
+.face.left {
+  transform: rotateY(-90deg) translateZ(15px);
+}
 
-  .face.right {
-    transform: rotateY(90deg) translateZ(15px);
-  }
+.face.right {
+  transform: rotateY(90deg) translateZ(15px);
+}
 
-  .face.top {
-    transform: rotateX(90deg) translateZ(15px);
-  }
+.face.top {
+  transform: rotateX(90deg) translateZ(15px);
+}
 
-  .face.bottom {
-    transform: rotateX(-90deg) translateZ(15px);
-  }
+.face.bottom {
+  transform: rotateX(-90deg) translateZ(15px);
+}
 
 @keyframes rotateCube {
   0% {
@@ -204,21 +227,136 @@ a:hover {
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
 }
 
-#progress-bar-container {
-  width: 100%;
-  background-color: #f3f3f3;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
+.ve-00 {
+  position: absolute;
+  display: inline;
+  border-radius: 2px;
+  margin-top: 24px;
+  height: 3px;
+  width: 15px;
+  background-color: #1f1f1f;
+  animation: blink 2s infinite;
 }
 
-#progress-bar {
-  height: 5px;
-  width: 0;
-  background-color: #4caf50;
-  text-align: center;
-  line-height: 5px;
-  color: white;
+body:has(.title:hover) .ve-00 {
+  background-color: gray;
+}
+
+@keyframes blink {
+  from {opacity: 0%;}
+  49% {opacity: 0%;}
+  50% {opacity: 100%;}
+  to {opacity: 100%;}
+}
+
+.ve-01 {
+  margin: 0px;
+  padding: 0px;
+  margin-right: 30px;
+  float: right;
+  width: 160px;
+  height: 27px;
+  direction: ltr;
+  display: inline;
+  position: absolute;
+  font-size: 8px;
+  background: linear-gradient(90deg, var(--gradientdark) 0%, var(--gradientmedian) 23%, var(--gradientlight) 100%);
+  transition: right ease 0.5s, box-shadow 0.5s, --gradientlight 0.2s, --gradientmedian 0.7s, --gradientdark 1.5s;
+}
+
+.ve-01:hover {
+  --gradientdark: rgba(126,112,115,0.5);
+  --gradientmedian: rgba(200,136,159,0.5);
+  --gradientlight: rgba(255,200,219,0.5);
+}
+
+.ve-01-00 {
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  padding-left: 0px;
+}
+
+.ve-01-01 {
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  padding-left: 70px;
+}
+
+.ve-01-02 {
+  margin: 0px;
+  padding: 0px;
+  direction: rtl;
+  position: absolute;
+  padding-left: 85px;
+}
+
+.ve-02 {
+  position: absolute;
+  width: 250px;
+  height: 100%;
+  right: 10px;
+  top: 10px;
+}
+
+.ve-02-00 {
+  float: right;
+  margin-right: 0px;
+  right: 10px;
+  top: 10px;
+  width: 500px;
+  height: 95px;
+  border-right: 1px solid #1f1f1f;
+  border-top: 1px solid #1f1f1f;
+  bottom: 0px;
+}
+
+.ve-02-01 {
+  float: right;
+  width: 50px;
+  border-top: 1px solid #1f1f1f;
+  transition: all cubic-bezier(1,0.6,0.1,0.1) 0.2s;
+}
+
+body:has(.sidebar:hover) .ve-02-01 {
+  width: 150px;
+}
+
+.ve-03 {
+  z-index: -1;
+  position: absolute;
+  width: 250px;
+  height: 100%;
+  left: 10px;
+  top: 10px;
+}
+
+.ve-03-00 {
+  margin-right: 0px;
+  right: 10px;
+  top: 10px;
+  width: 300px;
+  height: 95px;
+  bottom: 0px;
+}
+
+.ve-03-01 {
+  width: 50px;
+  height: 215px;
+  border-top: 1px solid #1f1f1f;
+  border-left: 1px solid #1f1f1f;
+  transition: all cubic-bezier(1,0.6,0.1,0.1) 0.2s;
+}
+
+body:has(.text:hover) .ve-03-01 {
+  width: 150px;
+}
+
+.ve-03-02 {
+  width: 20px;
+  height: 0px;
+  border-top: 1px dashed #1f1f1f;
+  transition: all cubic-bezier(1,0.6,0.1,0.1) 0.2s;
 }
 

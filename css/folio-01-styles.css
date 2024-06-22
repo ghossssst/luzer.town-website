@@ -6,19 +6,19 @@ body {
 
 @property --gradientdark {
     syntax: "<color>";
-    initial-value: rgba(69,128,194,1);
+    initial-value: rgba(108,214,222,1);
     inherits: false;
 }
 
 @property --gradientmedian {
     syntax: "<color>";
-    initial-value: rgba(82,160,223,1);
+    initial-value: rgba(70,255,212,1);
     inherits: false;
 }
 
 @property --gradientlight {
     syntax: "<color>";
-    initial-value: rgba(126,202,228,1);
+    initial-value: rgba(194,255,242,1);
     inherits: false;
 }
 
@@ -104,7 +104,7 @@ p {
     padding-top: 40px;
     display: block;
     margin: auto;
-    width: 1180px;
+    width: 880px;
 }
 
 .tile-link {
@@ -112,27 +112,27 @@ p {
     margin: 20px;
     border-radius: 15px;
     background: linear-gradient(320deg, var(--gradientdark) 0%, var(--gradientmedian) 37%, var(--gradientlight) 100%);
-    width: 350px;
-    height: 500px;
+    width: 250px;
+    height: 400px;
     position: relative;
     top: 0;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
     transition: top ease 0.5s, box-shadow 0.5s, --gradientlight 0.2s, --gradientmedian 0.7s, --gradientdark 1.5s;
 }
 
 .tile-link:hover {
-    --gradientdark: rgba(240,118,68,1);
-    --gradientmedian: rgba(232,127,69,1);
-    --gradientlight: rgba(239,207,113,1);
-    top: -20px;
-    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.4);
+    --gradientdark: rgba(117,131,231,1);
+    --gradientmedian: rgba(147,93,255,1);
+    --gradientlight: rgba(212,158,255,1);
+    top: -10px;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4);
 }
 
 .tile-text {
     font-family: Helvetica, sans-serif;
-    padding-top: 250px;
+    padding-top: 150px;
     bottom: 0;
-    width: 350px;
+    width: 250px;
     height: 250px;
     text-align: center;
 }
@@ -144,9 +144,10 @@ p {
 }
 
 .tile-text-h {
+    height: 50px;
     margin-left: 40px;
     margin-right: 40px;
-    font-size: 29px;
+    font-size: 20px;
 }
 
 .button {
