@@ -40,3 +40,13 @@ function copyToClipboard(text) {
   document.body.removeChild(textarea);
   alert('Email address copied to clipboard: ' + text);
 }
+
+function playpausevideo() {
+  document.getElementById('myVideo').addEventListener('click', function () {
+    if (this.paused) {
+        this.play();
+    } else {
+        this.pause();
+    }
+  });
+}

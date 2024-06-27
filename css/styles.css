@@ -349,7 +349,67 @@ body:has(.sidebar:hover) .ve-02-01 {
   transition: all cubic-bezier(1,0.6,0.1,0.1) 0.2s;
 }
 
+.ve-03-01-00 {
+  width: 50px;
+  height: 565px;
+  border-top: 1px solid #1f1f1f;
+  border-left: 1px solid #1f1f1f;
+  transition: all cubic-bezier(1,0.6,0.1,0.1) 0.2s;
+}
+
+.ve-03-01-01 {
+  width: 50px;
+  height: 765px;
+  border-top: 1px solid #1f1f1f;
+  border-left: 1px solid #1f1f1f;
+  transition: all cubic-bezier(1,0.6,0.1,0.1) 0.2s;
+}
+
+.ve-03-01-02 {
+  width: 50px;
+  height: 35px;
+  border-top: 1px solid #1f1f1f;
+  border-left: 1px solid #1f1f1f;
+  transition: all cubic-bezier(1,0.6,0.1,0.1) 0.2s;
+}
+
+.ve-03-01-03 {
+  width: 50px;
+  height: 55px;
+  border-top: 1px solid #1f1f1f;
+  border-left: 1px solid #1f1f1f;
+  transition: all cubic-bezier(1,0.6,0.1,0.1) 0.2s;
+}
+
+.ve-03-01-04 {
+  width: 50px;
+  height: 55px;
+  border-top: 1px solid #1f1f1f;
+  border-left: 1px solid #1f1f1f;
+  transition: all cubic-bezier(1,0.6,0.1,0.1) 0.2s;
+}
+
 body:has(.text:hover) .ve-03-01 {
+  width: 150px;
+}
+
+body:has(.divboard:hover) .ve-03-01-00 {
+  width: 150px;
+}
+
+body:has(.projects:hover) .ve-03-01-01 {
+  width: 150px;
+}
+
+body:has(.portfolio:hover) .ve-03-01-02 {
+  width: 150px;
+}
+
+body:has(.obituary:hover) .ve-03-01-03 {
+  width: 150px;
+}
+
+body:has(.aquarium:hover) .ve-03-01-03 {
   width: 150px;
 }
 
