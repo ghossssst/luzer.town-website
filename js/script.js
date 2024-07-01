@@ -41,12 +41,17 @@ function copyToClipboard(text) {
   alert('Email address copied to clipboard: ' + text);
 }
 
-function playpausevideo() {
-  document.getElementById('myVideo').addEventListener('click', function () {
-    if (this.paused) {
-        this.play();
-    } else {
-        this.pause();
-    }
-  });
+function search() {
+  const query = document.getElementById('searchInput').value;
+  fetch(`/search?q=${query}`)
+      .then(response => response.json())
+      .then(data => {
+          const resultsContainer = document.getElementById('results');
+          resultsContainer.innerHTML = '';
+          data.results.forEach(result => {
+              const div = document.createElement('div');
+              div.textContent = result;
+              resultsContainer.appendChild(div);
+          });
+      });
 }

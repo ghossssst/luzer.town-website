@@ -1,7 +1,13 @@
 body {
+  font-family:'Courier New', Courier, monospace;
   margin: 0px;
   color: #1f1f1f;
   background-color:whitesmoke ;
+}
+
+@font-face {
+  font-family: "vga";
+  src: url(../fonts/perfect_dos_vga_437_win-webfont.woff);
 }
 
 @property --gradientlight {
@@ -23,7 +29,6 @@ body {
 }
 
 .main {
-  font-family: 'Courier New', Courier, monospace;
   margin-left: 20px;
   margin-right: 300px;
 }
@@ -45,9 +50,37 @@ body {
   margin: 0px;
 }
 
+.directorylink {
+  margin: 0px;
+}
+
 .directorybutton {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  background-color: #bdbdbd;
+  border-bottom-color: #7b7b7b;
+  border-right-color: #7b7b7b;
+  border-top-color: #dedede;
+  border-left-color: #dedede;
+  border-style: solid;
+  border-width: 2px;
   width: 200px;
   height: 25px;
+}
+
+.directorybutton:hover {
+  padding-top: 1px;
+  padding-left: 1px;
+  background-color: #bdbdbd;
+  border-bottom-color: #dedede;
+  border-right-color: #dedede;
+  border-top-color: #7b7b7b;
+  border-left-color: #7b7b7b;
+  border-style: solid;
+  border-width: 2px;
+  width: 199px;
+  height: 24px;
+  transition: all;
 }
 
 .ipaddress {
@@ -59,10 +92,6 @@ body {
   padding-left: 0px;
 }
 
-.p1 {
-  font-family: 'Courier New', Courier, monospace;
-}
-
 .underlinedlink {
   text-decoration: underline;
 }
@@ -72,7 +101,8 @@ body {
 }
 
 .projtitle {
-  padding-bottom: 40px;
+  padding-top: 15px;
+  padding-bottom: 25px;
 }
 
 .projsubtext {
@@ -82,10 +112,9 @@ body {
 
 .sidebar {
   direction: rtl;
-  font-family: 'Courier New', Courier, monospace;
   float: right;
   height: 100%;
-  width: 200px;
+  width: 220px;
   z-index: 1;
   overflow: hidden;
   position: absolute;
@@ -107,7 +136,6 @@ a:link {
 }
 
 a {
-  transition: all 0.2s;
   color:#1f1f1f;
 }
 
@@ -126,7 +154,6 @@ a:hover {
 }
 
 .pagenumber {
-  font-family: 'Courier New', Courier, monospace;
   position: absolute;
   bottom: 0;
   text-align: left;
