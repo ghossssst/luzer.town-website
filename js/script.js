@@ -40,18 +40,3 @@ function copyToClipboard(text) {
   document.body.removeChild(textarea);
   alert('Email address copied to clipboard: ' + text);
 }
-
-function search() {
-  const query = document.getElementById('searchInput').value;
-  fetch(`/search?q=${query}`)
-      .then(response => response.json())
-      .then(data => {
-          const resultsContainer = document.getElementById('results');
-          resultsContainer.innerHTML = '';
-          data.results.forEach(result => {
-              const div = document.createElement('div');
-              div.textContent = result;
-              resultsContainer.appendChild(div);
-          });
-      });
-}
