@@ -50,8 +50,10 @@ function frame() {
   ctx.clearRect(0, 0, board.width, board.height);
 
   // Draw the food on the board
-  ctx.fillStyle = "black";
-  ctx.fillRect(food.x + 1, food.y + 1, cellsize - 2, cellsize - 2);
+  ctx.lineWidth = 2;
+  ctx.fillStyle = "#ff748b";
+  ctx.fillRect(food.x + 3, food.y + 3, cellsize - 6, cellsize - 6);
+  ctx.strokeRect(food.x + 2, food.y + 2, cellsize - 4, cellsize - 4);
 
   // Update the snake's position based on its velocity
   snake.x += snake.velx;
@@ -71,9 +73,9 @@ function frame() {
   }
 
   // Draw each cell of the snake's body and check for collisions with food
-  ctx.lineWidth = 1;
+  ctx.lineWidth = 2;
   snake.cells.forEach(function(cell, index) {
-    ctx.strokeRect(cell.x + 1.5, cell.y + 1.5, cellsize - 3, cellsize - 3);
+    ctx.strokeRect(cell.x + 2, cell.y + 2, cellsize - 4, cellsize - 4);
     if (snake.x === food.x && snake.y === food.y) {
       snake.setcells++;
       score++;
@@ -108,13 +110,14 @@ document.addEventListener("keydown", function(event) {
 
 // Function to reset the game state
 function reset() {
+  score = 0;
+  document.getElementById("score").innerHTML = score;
   snake.x = cellsize;
   snake.y = cellsize * 7;
   snake.velx = cellsize;
   snake.vely = 0;
   snake.cells = [];
   snake.setcells = 3;
-  score = 0;
   placefood();
 }
 
