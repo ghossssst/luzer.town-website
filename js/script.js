@@ -117,6 +117,91 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    const spiderContainer = document.getElementById('spider-container');
+    const spiderPre = document.getElementById('spider-pre');
+    const spiderSound = document.getElementById('spider-sound');
+
+    const originalContent = `  ''"~,,.~"'/|
+       ',  / |
+         '/  |
+          ', |
+            .|
+             |
+             |
+             |
+             |
+             |
+             |
+             |
+             |
+             |
+             |
+             |
+           , | ,
+          .| | |.
+          || | ||
+          || | ||
+          \\\\(^)//
+           //8\\\\  
+           \\' '/
+            ' '
+    `;
+
+    const newContent = `  ''"~,,.~"'/|
+       ',  / |
+         '/  |
+          ', |
+            .|
+             |
+             |
+             |
+             |
+             |
+             |
+             |
+             |
+             |
+             |
+             |
+             |
+           , | ,
+          .| | |.
+          || | ||
+          || | ||
+          \\\\(^)//
+           //8\\\\  
+           \\' '/
+            ' '
+    `;
+
+    spiderContainer.addEventListener('mouseover', function() {
+        spiderPre.textContent = newContent;
+    });
+
+    spiderContainer.addEventListener('mouseout', function() {
+        spiderPre.textContent = originalContent;
+    });
+
+    spiderSound.volume = 0.01;
+
+    spiderContainer.addEventListener("mouseenter", function() {
+        spiderSound.currentTime = 0;
+        spiderSound.play();
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    function updateTime() {
+        const now = new Date();
+        const formattedTime = now.toLocaleTimeString();
+        document.getElementById('datetime').textContent = formattedTime;
+    }
+
+    updateTime();
+
+    setInterval(updateTime, 1000);
+});
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }

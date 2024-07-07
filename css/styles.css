@@ -26,6 +26,7 @@ fieldset {
 }
 
 a:link {
+  color: #1f1f1f;
   text-decoration: none;
 }
 
@@ -88,8 +89,33 @@ a:link {
   padding-bottom: 0px;
 }
 
-.rosetext {
-  font-size: 5.1px;
+.infotext {
+  text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
+  animation-name: crt;
+  animation-duration: 0.05s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+#datetime {
+}
+
+.web {
+  cursor: default;
+  position: absolute;
+  margin-top: 340px;
+  text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
+  animation-name: crt;
+  animation-duration: 0.05s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+.spider {
+  cursor: default;
+  position: absolute;
+  margin-left: 725px;
+  margin-top: 340px;
   text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
   animation-name: crt;
   animation-duration: 0.05s;
@@ -98,6 +124,7 @@ a:link {
 }
 
 .directorybutton {
+  cursor: pointer;
   padding: 0px;
   margin: 0px;
   padding-bottom: 4px;
@@ -137,7 +164,7 @@ a:link {
 
 .image-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); 
+  grid-template-columns: repeat(8, 1fr); 
   gap: 10px; 
   width: 100%;
 }
@@ -166,6 +193,31 @@ a:link {
   padding-top: 1%;
   z-index: 2000;
 }
+
+.windowbutton {
+  font-family: "pixels";
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-right: 0px;
+  margin-bottom: 13px;
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+  width: 200px;
+  height: 30px;
+  box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.5);
+  transition: all 0.05s ease;
+}
+
+.windowbutton:hover {
+  color: white;
+  background-color: #ff748b;
+  /*background-color: #89ccc5;*/
+  transform: translateY(4px);
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+
 
 .shadow {
   box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.5);
@@ -216,8 +268,8 @@ a:link {
 .floating-window2 {
   color: #1f1f1f;
   font-family: "pixels";
-  width: 700px;
-  height: 993px;
+  width: 900px;
+  height: 410px;
   position: absolute;
   top: 100px;
   left: 200px;
@@ -253,8 +305,8 @@ a:link {
 .floating-window3 {
   color: #1f1f1f;
   font-family: "pixels";
-  width: 535px;
-  height: 590px;
+  width: 300px;
+  height: 150px;
   position: absolute;
   top: 100px;
   left: 200px;
@@ -289,8 +341,8 @@ a:link {
 .floating-window4 {
   color: #1f1f1f;
   font-family: "pixels";
-  width: 535px;
-  height: 590px;
+  width: 600px;
+  height: 360px;
   position: absolute;
   top: 100px;
   left: 200px;
@@ -344,7 +396,7 @@ a:link {
 
 .floating-window5:hover {
   z-index: 1000;
-  box-shadow: 0px 0px 60px rgb(33, 211, 143, 1), 0px 8px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 30px rgb(33, 211, 143, 0.3), 0px 8px 0px rgba(0, 0, 0, 0.5);
 }
 
 .Button5-running {
