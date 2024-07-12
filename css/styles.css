@@ -9,12 +9,12 @@ html {
   src: url(../fonts/pixels.woff2);
 }
 
-p{
+p {
   padding: 0px;
   margin: 0px;
 }
 
-pre{
+pre {
   padding: 0px;
   margin: 0px;
 }
@@ -33,16 +33,24 @@ a:link {
 .screenGrid {
   position: absolute;
   height: 100%;
-  width: 100%; 
+  width: 100%;
   top: 0px;
   left: 0px;
   opacity: 0.1;
   background-image: url(../img/noise.gif);
-  background-color: rgba(255,255,255,0.7);
+  background-color: rgba(255, 255, 255, 0.7);
   background-blend-mode: lighten;
   z-index: 10;
   pointer-events: none;
   display: none;
+}
+
+.mousefollow {
+  top: 370px;
+  left: 450px;
+  position: absolute;
+  pointer-events: none;
+  animation: float 0.6s infinite steps(1);
 }
 
 .titlestart {
@@ -53,10 +61,19 @@ a:link {
   animation-iteration-count: infinite;
 }
 
+#frame {
+  display: none;
+  text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
+  animation-name: crt;
+  animation-duration: 0.05s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
 .title {
   height: 310px;
   width: 800px;
-  position: fixed;
+  position: absolute;
   text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
   animation-name: crt;
   animation-duration: 0.05s;
@@ -68,7 +85,7 @@ a:link {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 14px;
-  
+
 }
 
 .internal-directory {
@@ -97,9 +114,6 @@ a:link {
   animation-iteration-count: infinite;
 }
 
-#datetime {
-}
-
 .web {
   cursor: default;
   position: absolute;
@@ -123,6 +137,19 @@ a:link {
   animation-iteration-count: infinite;
 }
 
+.bat {
+  z-index: 3;
+  cursor: default;
+  position: absolute;
+  margin-left: 500px;
+  margin-top: 340px;
+  text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
+  animation-name: crt;
+  animation-duration: 0.05s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
 .directorybutton {
   cursor: pointer;
   padding: 0px;
@@ -136,7 +163,7 @@ a:link {
   display: flex;
   align-items: center;
   position: relative;
-  border-style: solid;
+  border-style: none;
   transition: all 0.5s ease;
   text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
   animation-name: crt;
@@ -164,15 +191,15 @@ a:link {
 
 .image-grid {
   display: grid;
-  grid-template-columns: repeat(8, 1fr); 
-  gap: 10px; 
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
   width: 100%;
 }
 
 .image-grid img {
-  width: 100%; 
+  width: 100%;
   height: auto;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .overlay {
@@ -182,8 +209,8 @@ a:link {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3); 
-  z-index: 1000; 
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
   text-align: center;
 }
 
@@ -242,7 +269,7 @@ a:link {
   box-shadow: 0px 0px 20px rgb(33, 211, 143, 0.3), 0px 4px 0px rgba(0, 0, 0, 0.5);
   background-color: rgb(245, 245, 245, 0.9);
   z-index: 500;
-  display: none; 
+  display: none;
   animation-name: flicker;
   animation-duration: 0.05s;
   animation-direction: alternate;
@@ -278,7 +305,7 @@ a:link {
   box-shadow: 0px 0px 20px rgb(33, 211, 143, 0.3), 0px 4px 0px rgba(0, 0, 0, 0.5);
   background-color: rgb(245, 245, 245, 0.9);
   z-index: 500;
-  display: none; 
+  display: none;
   animation-name: flicker;
   animation-duration: 0.05s;
   animation-direction: alternate;
@@ -315,7 +342,7 @@ a:link {
   box-shadow: 0px 0px 20px rgb(33, 211, 143, 0.3), 0px 4px 0px rgba(0, 0, 0, 0.5);
   background-color: rgb(245, 245, 245, 0.9);
   z-index: 500;
-  display: none; 
+  display: none;
   animation-name: flicker;
   animation-duration: 0.05s;
   animation-direction: alternate;
@@ -351,7 +378,7 @@ a:link {
   box-shadow: 0px 0px 20px rgb(33, 211, 143, 0.3), 0px 4px 0px rgba(0, 0, 0, 0.5);
   background-color: rgb(245, 245, 245, 0.9);
   z-index: 500;
-  display: none; 
+  display: none;
   animation-name: flicker;
   animation-duration: 0.05s;
   animation-direction: alternate;
@@ -387,7 +414,7 @@ a:link {
   box-shadow: 0px 0px 20px rgb(33, 211, 143, 0.3), 0px 4px 0px rgba(0, 0, 0, 0.5);
   background-color: rgb(245, 245, 245, 0.9);
   z-index: 500;
-  display: none; 
+  display: none;
   animation-name: flicker;
   animation-duration: 0.05s;
   animation-direction: alternate;
@@ -411,7 +438,7 @@ a:link {
 }
 
 .header {
-  display:flex;
+  display: flex;
   padding: 10px;
   background-color: whitesmoke;
   border-bottom: 2px solid black;
@@ -466,16 +493,17 @@ a:link {
 }
 
 .ve-00 {
-    width: 200px;
-    height: 300px;
-    border-width: 3px;
-    border-style: double;
+  width: 200px;
+  height: 300px;
+  border-width: 3px;
+  border-style: double;
 }
 
 @keyframes crt {
   from {
     text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
   }
+
   to {
     text-shadow: 0.9px 0px 0.9px #69bef0, -0.9px -0px 0.9px #c2fa69;
   }
@@ -485,7 +513,30 @@ a:link {
   from {
     box-shadow: 0px 0px 20px rgb(33, 211, 143, 0.3), 0px 4px 0px rgba(0, 0, 0, 0.5);
   }
+
   to {
     box-shadow: 0px 0px 20px rgba(31, 235, 157, 0.4), 0px 4px 0px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(-2px);
+  }
+
+  20% {
+    transform: translateY(0px);
+  }
+
+  40% {
+    transform: translateY(1px);
+  }
+
+  60% {
+    transform: translateY(-3px);
+  }
+
+  80% {
+    transform: translateY(-6px);
   }
 }

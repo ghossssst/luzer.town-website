@@ -12,6 +12,9 @@
     <body>
         <div class="screenGrid" style="display: block;"></div>
         <div class="terminal">
+            <div id="follow" class="mousefollow">
+                <pre id="frame"></pre>
+            </div>
             <div class="titlestart">
                 <p>
                     [root@luzertown ~]$ ./luzer.town
@@ -38,41 +41,41 @@
                             <span class="directorylink">[&#9734]------------[snake]</span>
                             <span id="Button1running" class="Button1-running">[RUNNING]</span>
                         </button> 
-                        <button class="directorybutton" id="toggleButton2">
+                        <button class="directorybutton" id="toggleButton2" id="terminal-button">
                             <span class="directorylink">[&#9734]------------[art]</span>
                             <span id="Button2running" class="Button2-running">[RUNNING]</span>
                         </button> 
-                        <button class="directorybutton" id="toggleButton3">
+                        <button class="directorybutton" id="toggleButton3" id="terminal-button">
                             <span class="directorylink">[&#9734]------------[projects]</span>
                             <span id="Button3running" class="Button3-running">[RUNNING]</span>
                         </button> 
-                        <button class="directorybutton" id="toggleButton4">
+                        <button class="directorybutton" id="toggleButton4" id="terminal-button">
                             <span class="directorylink">[&#9734]------------[portfolio]</span>
                             <span id="Button4running" class="Button4-running">[RUNNING]</span>
                         </button> 
-                        <button class="directorybutton" id="toggleButton5">
+                        <button class="directorybutton" id="toggleButton5" id="terminal-button">
                             <span class="directorylink">[&#9734]------------[obituary]</span>
                             <span id="Button5running" class="Button5-running">[RUNNING]</span>
                         </button> 
                     </fieldset>
-                    <fieldset class="external-directory">
+                    <fieldset class="external-directory" id="terminal-button">
                         <legend>external directory</legend>
-                        <a href="https://www.instagram.com/lukezdesign/">
+                        <a href="https://www.instagram.com/lukezdesign/" target="_blank">
                             <button class="directorybutton">
                                 <p class="directorylink">[&#9734]------------[instagram]</p>
                             </button>  
                         </a>
-                        <a href="https://twitter.com/zebedeedesign">
+                        <a href="https://twitter.com/zebedeedesign" target="_blank">
                             <button class="directorybutton">
                                 <p class="directorylink">[&#9734]------------[twitter]</p>
                             </button>  
                         </a>
-                        <a href="https://github.com/ghossssst">
+                        <a href="https://github.com/ghossssst" target="_blank">
                             <button class="directorybutton">
                                 <p class="directorylink">[&#9734]------------[github]</p>
                             </button>   
                         </a>
-                        <a href="https://steamcommunity.com/id/CraptorSteam/">
+                        <a href="https://steamcommunity.com/id/CraptorSteam/" target="_blank">
                             <button class="directorybutton">
                                 <p class="directorylink">[&#9734]------------[steam]</p>
                             </button>    
@@ -81,6 +84,8 @@
                     <fieldset class="info">
                         <legend>info</legend>
                         <div id="datetime"></div>
+                        <div id="loading">|</div>
+                        <p>if u have javascript disabled this site isn't gonna work :/ & dont use ur phone</p>
                     </fieldset>
                 </div>
             </fieldset>
@@ -127,7 +132,12 @@
            \' '/
             ' '
                 </pre>
-                <audio id="spider-sound" src="../audio/minecraftspider.ogg" preload="auto"></audio>
+            </div>
+            <div class="bat" id="bat-container">
+                <pre id="bat-pre">
+  /\"/\
+  'v-v'
+                </pre>
             </div>
             <div id="floatingWindow1" class="floating-window1">
                 <div class="header" id="header">
@@ -152,7 +162,7 @@
             </div>
             <div id="floatingWindow2" class="floating-window2">
                 <div class="header" id="header">
-                    <p>art</p>
+                    <p>art - WIP</p>
                     <div class="windowoptions">
                         <div class="minimalise">_</div>
                         <div class="close">x</div>
@@ -188,7 +198,7 @@
             </div>
             <div id="floatingWindow3" class="floating-window3">
                 <div class="header" id="header">
-                    <p>projects</p>
+                    <p>projects - WIP</p>
                     <div class="windowoptions">
                         <div class="minimalise">_</div>
                         <div class="close">x</div>
@@ -202,7 +212,7 @@
             </div>
             <div id="floatingWindow4" class="floating-window4">
                 <div class="header" id="header">
-                    <p>portfolio</p>
+                    <p>portfolio - WIP</p>
                     <div class="windowoptions">
                         <div class="minimalise">_</div>
                         <div class="close">x</div>
@@ -235,5 +245,9 @@
                 </div>
             </div>
         </div>
+        <audio id="battakeoff-sound" src="../audio/Bat_takeoff.ogg" preload="auto"></audio>
+        <audio id="batidle-sound" src="../audio/Bat_idle1.ogg" preload="auto"></audio>
+        <audio id="spider-sound" src="../audio/minecraftspider.ogg" preload="auto"></audio>
+        <audio id="click-sound" src="../audio/click.mp3" preload="auto"></audio>
     </body>
 </html>

@@ -183,13 +183,30 @@ document.addEventListener("DOMContentLoaded", function() {
         spiderPre.textContent = originalContent;
     });
 
-    spiderSound.volume = 0.01;
+    spiderSound.volume = 0.1;
 
     spiderContainer.addEventListener("mouseenter", function() {
         spiderSound.currentTime = 0;
         spiderSound.play();
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const clickSound = document.getElementById('click-sound');
+    const clickButtons = document.querySelectorAll('.directorybutton, .minimalise, .close');
+
+    clickSound.volume = 0.4;
+
+    clickButtons.forEach(function(button) {
+        button.addEventListener("mousedown", function() {
+            clickSound.currentTime = 0.02; 
+            clickSound.play().catch(function(error) {
+                console.error("Error playing sound:", error);
+            });
+        });
+    });
+});
+
 
 document.addEventListener('DOMContentLoaded', function() {
     function updateTime() {
@@ -202,8 +219,119 @@ document.addEventListener('DOMContentLoaded', function() {
 
     setInterval(updateTime, 1000);
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const frames = [
+        "|",
+        "/",
+        "-",
+        "\\"
+    ];
+    
+    let currentFrame = 0;
+    const asciiArtElement = document.getElementById('loading');
+    
+    function animate() {
+        asciiArtElement.textContent = frames[currentFrame];
+        currentFrame = (currentFrame + 1) % frames.length;
+    }
+    
+    setInterval(animate, 300);    
+});
+
+
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+
+
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const flyingBat = document.getElementById("frame")
+    const batContainer = document.getElementById("bat-container")
+    const batPre = document.getElementById("bat-pre")
+    const batidlesound = document.getElementById('batidle-sound');
+    const battakeoffsound = document.getElementById('battakeoff-sound');
+
+    batidlesound.volume = 0.1;
+    battakeoffsound.volume = 0.1;
+
+    const originalContent = `  /\\"/\\
+  'v-v'
+            `;
+    
+    const newContent = `\\'-.".-'/
+ \\/v-v\\/
+            `;
+    
+    batContainer.addEventListener('mouseover', function() {
+        batPre.textContent = newContent;
+        batidlesound.currentTime = 0;
+        batidlesound.play();
+    });
+
+    batContainer.addEventListener('mouseout', function() {
+        batPre.textContent = originalContent;
+    });
+
+    batContainer.addEventListener('mousedown', function() {
+        batContainer.style.display = "none";
+        flyingBat.style.display = 'block';
+
+        battakeoffsound.currentTime = 0;
+        battakeoffsound.play();
+     
+        var $mouseX = 450, $mouseY = 400;
+        var $xp = 450, $yp = 400;
+        
+        var follow = document.getElementById('follow');
+        
+        document.addEventListener('mousemove', function(e){
+            $mouseX = e.clientX;
+            $mouseY = e.clientY;
+        });
+        
+        var $loop = setInterval(function(){
+            $xp += (($mouseX - $xp)/10);
+            $yp += (($mouseY - $yp)/10);
+            
+            follow.style.left = $xp + 'px';
+            follow.style.top = $yp + 'px';
+        }, 80); 
+        
+        const frames = [
+    `      ___     ___
+      '._\\^-^/_.'
+          '"'`,
+    `
+      '"-\\^-^/-"'
+          '"'`,
+    `
+      ,.-/^-^\\-.,
+          '"'`,
+    `
+        .'^-^'.
+       /' '"' '\\`,
+    `
+      '"-\\^-^/-"'
+          '"'`
+        ];
+        
+        let currentFrame = 0;
+        
+        function updateFrame() {
+            const frameElement = document.getElementById('frame');
+            frameElement.textContent = frames[currentFrame];
+            currentFrame = (currentFrame + 1) % frames.length;
+        }
+        
+        setInterval(updateFrame, 120); 
+        
+        updateFrame();
+    });
+});
 
 
