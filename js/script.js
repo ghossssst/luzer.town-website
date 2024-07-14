@@ -1,7 +1,5 @@
 function onPageLoaded() {
     console.log("page loaded");
-    displayBrowserInfo();
-    loadImagesWithProgress();
 }
 
 function showLargeImage(imageSrc) {
@@ -295,6 +293,9 @@ document.addEventListener("DOMContentLoaded", function() {
         });
         
         var $loop = setInterval(function(){
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+            
             $xp += (($mouseX - $xp)/10);
             $yp += (($mouseY - $yp)/10);
             

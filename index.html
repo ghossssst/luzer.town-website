@@ -22,6 +22,17 @@
                 <p>
                     starting "luzer.town" @<a id="ip-address">loading...</a> ---
                 </p>
+                <noscript>
+                    <p>this won't work without javascript being enabled :/</p>
+                </noscript>
+                <div class="mobile-warning" id="mobileWarning">
+                    <p><span class="warning">!WARNING!</span> mobile device detected. please only view page via computer terminal >:(</p>
+                </div>
+                <script>
+                    if (/Mobi/.test(navigator.userAgent)) {
+                        document.getElementById('mobileWarning').style.display = 'block';
+                    }
+                </script>
             </div>
             <fieldset class="title">
                 <legend>NOW RUNNING</legend>
@@ -85,7 +96,6 @@
                         <legend>info</legend>
                         <div id="datetime"></div>
                         <div id="loading">|</div>
-                        <p>if u have javascript disabled this site isn't gonna work :/ & dont use ur phone</p>
                     </fieldset>
                 </div>
             </fieldset>

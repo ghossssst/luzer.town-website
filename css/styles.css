@@ -61,6 +61,15 @@ a:link {
   animation-iteration-count: infinite;
 }
 
+.mobile-warning {
+  display: none; 
+  z-index: 1000; /* Ensure it's on top */
+}
+
+.warning {
+  color: #ff748b;
+}
+
 #frame {
   display: none;
   text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
@@ -98,20 +107,6 @@ a:link {
   margin-top: 0px;
   height: 140px;
   width: 250px;
-}
-
-.rose {
-  image-rendering: pixelated;
-  padding-top: 0px;
-  padding-bottom: 0px;
-}
-
-.infotext {
-  text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
-  animation-name: crt;
-  animation-duration: 0.05s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
 }
 
 .web {
