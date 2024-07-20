@@ -49,7 +49,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
         { buttonId: 'toggleButton5', windowId: 'floatingWindow5', runningId: "Button5running"},
     ];
 
-    let highestZIndex = 1000;  // Starting z-index for the first window
+    let highestZIndex = 1000;  
+    let lowestZIndex = 999;
 
     windows.forEach(({ buttonId, windowId, runningId }) => {
         const toggleButton = document.getElementById(buttonId);
@@ -114,13 +115,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
 
         minimaliseButton.addEventListener('click', () => {
-            floatingWindow.style.display = 'none';
-            running.style.display = 'none';
+            sendToBack(floatingWindow);
         });
 
         function bringToFront(window) {
             highestZIndex++;
             window.style.zIndex = highestZIndex;
+        }
+
+        function sendToBack(window) {
+            lowestZIndex--;
+            window.style.zIndex = lowestZIndex;
         }
 
         function getRandomInt(min, max) {
