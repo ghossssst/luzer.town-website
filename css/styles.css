@@ -1,537 +1,601 @@
 html {
-  color: #21d38f;
-  background-color: rgb(0, 0, 0);
-  font-family: 'Courier New', Courier, monospace;
+    color: #21d38f;
+    background-color: rgb(0, 0, 0);
+    font-family: 'Courier New', Courier, monospace;
 }
 
 @font-face {
-  font-family: "pixels";
-  src: url(../fonts/pixels.woff2);
+    font-family: "pixels";
+    src: url(../fonts/pixels.woff2);
 }
 
 p {
-  padding: 0px;
-  margin: 0px;
+    padding: 0px;
+    margin: 0px;
 }
 
 pre {
-  padding: 0px;
-  margin: 0px;
+    padding: 0px;
+    margin: 0px;
 }
 
 fieldset {
-  padding: 10px;
-  margin: 0px;
-  border: 3px double #21d38f;
+    padding: 10px;
+    margin: 0px;
+    border: 3px double #21d38f;
+}
+
+span {
+    padding: 0px;
+    margin: 0px;
+}
+
+button {
+    padding: 0px;
+    margin: 0px;
 }
 
 a:link {
-  color: #1f1f1f;
-  text-decoration: none;
+    color: #1f1f1f;
+    text-decoration: none;
 }
 
 .screenGrid {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0px;
-  left: 0px;
-  opacity: 0.1;
-  background-image: url(../img/noise.gif);
-  background-color: rgba(255, 255, 255, 0.7);
-  background-blend-mode: lighten;
-  z-index: 10;
-  pointer-events: none;
-  display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    opacity: 0.1;
+    background-image: url(../img/noise.gif);
+    background-color: rgba(255, 255, 255, 0.7);
+    background-blend-mode: lighten;
+    z-index: 10;
+    pointer-events: none;
+    display: none;
 }
 
 .mousefollow {
-  top: 370px;
-  left: 450px;
-  position: absolute;
-  pointer-events: none;
-  animation: float 0.6s infinite steps(1);
+    top: 370px;
+    left: 450px;
+    position: absolute;
+    pointer-events: none;
+    animation: float 0.6s infinite steps(1);
 }
 
 .titlestart {
-  text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
-  animation-name: crt;
-  animation-duration: 0.05s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
+    text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
+    animation-name: crt;
+    animation-duration: 0.05s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
 }
 
 .mobile-warning {
-  display: none; 
-  z-index: 1000; /* Ensure it's on top */
+    display: none;
+    z-index: 1000;
 }
 
 .warning {
-  color: #ff748b;
+    color: #ff748b;
 }
 
 #frame {
-  display: none;
-  text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
-  animation-name: crt;
-  animation-duration: 0.05s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
+    display: none;
+    text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
+    animation-name: crt;
+    animation-duration: 0.05s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
 }
 
 .title {
-  height: 310px;
-  width: 800px;
-  position: absolute;
-  text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
-  animation-name: crt;
-  animation-duration: 0.05s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
+    height: 310px;
+    width: 800px;
+    position: absolute;
+    text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
+    animation-name: crt;
+    animation-duration: 0.05s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    transition: all 0.5s ease;
+    box-shadow: 1px 0 1px #2a4b5f, -1px 0 1px #4f662b;
+    animation: crtdiv 0.05s alternate infinite;
 }
 
 .menu {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 14px;
-
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
 }
 
 .internal-directory {
-  margin-top: 0px;
-  height: 140px;
-  width: 250px;
+    margin-top: 0px;
+    height: 140px;
+    width: 250px;
+    transition: all 0.5s ease;
+    box-shadow: 1px 0 1px #2a4b5f, -1px 0 1px #4f662b;
+    animation: crtdiv 0.05s alternate infinite;
 }
 
 .external-directory {
-  margin-top: 0px;
-  height: 140px;
-  width: 250px;
+    margin-top: 0px;
+    height: 140px;
+    width: 250px;
+    transition: all 0.5s ease;
+    box-shadow: 1px 0 1px #2a4b5f, -1px 0 1px #4f662b;
+    animation: crtdiv 0.05s alternate infinite;
+}
+
+.info {
+    transition: all 0.5s ease;
+    box-shadow: 1px 0 1px #2a4b5f, -1px 0 1px #4f662b;
+    animation: crtdiv 0.05s alternate infinite;
+}
+
+.contactcontainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact {
+    cursor: pointer;
+    padding: 0px;
+    margin: 0px;
+    padding-bottom: 3px;
+    padding-left: 2px;
+    width: 60px;
+    height: 25px;
+    background-color: #00000000;
+    color: #21d38f;
+    align-items: center;
+    border-style: none;
+    transition: all 0.5s ease;
+    text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
+    animation-name: crt;
+    animation-duration: 0.05s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+.contact:hover {
+    color: rgb(0, 0, 0);
+    background-color: #21d38f;
+}
+
+
+.volume {
+    margin-top: 60px;
+    position: relative;
+    bottom: 0px;
+}
+
+#volumeControls {
+    display: flex;
+    align-items: baseline;
+    gap: 3px;
+    transition: all 0.5s ease;
+    text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
+    animation: crt 0.05s alternate infinite;
+}
+
+.volumeButton, .muteButton {
+    width: 7px;
+    border: none;
+    cursor: pointer;
+}
+
+.volumeLevel {
+    width: 7px;
+    cursor: pointer;
+    border: none;
+    background-color: #21d38f;
+    transition: all 0.5s ease;
+    box-shadow: 1px 0 1px #2a4b5f, -1px 0 1px #4f662b;
+    animation: crtdiv 0.05s alternate infinite;
+}
+
+.louder {
+    background-color: #05291b;
+}
+
+.volumeLevelCountercss {
+    position: absolute;
+    direction: ltr;
+    margin-top: 3px;
+    right: 2px; 
 }
 
 .web {
-  cursor: default;
-  position: absolute;
-  margin-top: 340px;
-  text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
-  animation-name: crt;
-  animation-duration: 0.05s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
+    cursor: default;
+    position: absolute;
+    margin-top: 340px;
+    text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
+    animation-name: crt;
+    animation-duration: 0.05s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
 }
 
 .spider {
-  cursor: default;
-  position: absolute;
-  margin-left: 725px;
-  margin-top: 340px;
-  text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
-  animation-name: crt;
-  animation-duration: 0.05s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
+    cursor: default;
+    position: absolute;
+    margin-left: 725px;
+    margin-top: 340px;
+    text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
+    animation-name: crt;
+    animation-duration: 0.05s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
 }
 
 .bat {
-  z-index: 3;
-  cursor: default;
-  position: absolute;
-  margin-left: 500px;
-  margin-top: 340px;
-  text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
-  animation-name: crt;
-  animation-duration: 0.05s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
+    z-index: 3;
+    cursor: default;
+    position: absolute;
+    margin-left: 500px;
+    margin-top: 340px;
+    text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
+    animation-name: crt;
+    animation-duration: 0.05s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
 }
 
 .directorybutton {
-  cursor: pointer;
-  padding: 0px;
-  margin: 0px;
-  padding-bottom: 4px;
-  padding-left: 2px;
-  width: 250px;
-  height: 25px;
-  background-color: #00000000;
-  color: #21d38f;
-  display: flex;
-  align-items: center;
-  position: relative;
-  border-style: none;
-  transition: all 0.5s ease;
-  text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
-  animation-name: crt;
-  animation-duration: 0.05s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
+    cursor: pointer;
+    padding: 0px;
+    margin: 0px;
+    padding-bottom: 4px;
+    padding-left: 2px;
+    width: 250px;
+    height: 25px;
+    background-color: #00000000;
+    color: #21d38f;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-style: none;
+    transition: all 0.5s ease;
+    text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
+    animation-name: crt;
+    animation-duration: 0.05s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
 }
 
 .directorybutton:hover {
-  color: rgb(0, 0, 0);
-  background-color: #21d38f;
+    color: rgb(0, 0, 0);
+    background-color: #21d38f;
 }
 
 .board {
-  border: 2px solid #1f1f1f;
-  opacity: 0.8;
-  background-image: url(../img/noise.gif);
-  background-color: rgb(245, 245, 245, 0.99);
-  background-blend-mode: lighten;
+    border: 2px solid #1f1f1f;
+    opacity: 0.8;
+    background-image: url(../img/noise.gif);
+    background-color: rgb(245, 245, 245, 0.99);
+    background-blend-mode: lighten;
 }
 
 .divboard {
-  padding-top: 0px;
+    padding-top: 0px;
 }
 
 .image-grid {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  gap: 10px;
-  width: 100%;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    width: 100%;
 }
 
 .image-grid img {
-  width: 100%;
-  height: auto;
-  cursor: pointer;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
 }
 
 .overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-  text-align: center;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    text-align: center;
 }
 
 .overlay img {
-  max-width: 90%;
-  max-height: 96%;
-  padding-top: 1%;
-  z-index: 2000;
+    max-width: 90%;
+    max-height: 96%;
+    padding-top: 1%;
+    z-index: 2000;
 }
 
 .windowbutton {
-  font-family: "pixels";
-  display: flex;
-  align-items: center;
-  position: relative;
-  margin-right: 0px;
-  margin-bottom: 13px;
-  border-color: black;
-  border-style: solid;
-  border-width: 2px;
-  width: 200px;
-  height: 30px;
-  box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.5);
-  transition: all 0.05s ease;
+    font-family: "pixels";
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-right: 0px;
+    margin-bottom: 13px;
+    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+    width: 200px;
+    height: 30px;
+    box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.5);
+    transition: all 0.05s ease;
 }
 
 .windowbutton:hover {
-  color: white;
-  background-color: #ff748b;
-  /*background-color: #89ccc5;*/
-  transform: translateY(4px);
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+    color: white;
+    background-color: #ff748b;
+    /*background-color: #89ccc5;*/
+    transform: translateY(4px);
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
 }
 
 
 .shadow {
-  box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.5);
-  transition: all 0.2s;
+    box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.5);
+    transition: all 0.2s;
 }
 
 .shadow:hover {
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
-  transform: translateY(4px);
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+    transform: translateY(4px);
 }
 
 .floating-window1 {
-  color: #1f1f1f;
-  font-family: "pixels";
-  width: 535px;
-  height: 590px;
-  position: absolute;
-  top: 100px;
-  left: 200px;
-  border: 2px solid black;
-  outline: 2px dashed #21d38f;
-  box-shadow: 0px 0px 20px rgb(33, 211, 143, 0.3), 0px 4px 0px rgba(0, 0, 0, 0.5);
-  background-color: rgb(245, 245, 245, 0.9);
-  z-index: 500;
-  display: none;
-  animation-name: flicker;
-  animation-duration: 0.05s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
+    color: #1f1f1f;
+    font-family: "pixels";
+    width: 535px;
+    height: 590px;
+    position: absolute;
+    top: 100px;
+    left: 200px;
+    border: 2px solid black;
+    outline: 2px dashed #21d38f;
+    box-shadow: 0px 0px 20px rgb(33, 211, 143, 0.3), 0px 4px 0px rgba(0, 0, 0, 0.5);
+    background-color: rgb(245, 245, 245, 0.9);
+    z-index: 500;
+    display: none;
+    animation-name: flicker;
+    animation-duration: 0.05s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
 }
 
 .floating-window1:hover {
-  z-index: 1000;
-  box-shadow: 0px 0px 30px rgb(33, 211, 143, 0.3), 0px 8px 0px rgba(0, 0, 0, 0.5);
-}
-
-.Button1-running {
-  padding-top: 2px;
-  direction: rtl;
-  float: right;
-  z-index: 1;
-  overflow: hidden;
-  position: absolute;
-  right: 0;
-  display: none;
+    z-index: 1000;
+    box-shadow: 0px 0px 30px rgb(33, 211, 143, 0.3), 0px 8px 0px rgba(0, 0, 0, 0.5);
 }
 
 .floating-window2 {
-  color: #1f1f1f;
-  font-family: "pixels";
-  width: 900px;
-  height: 410px;
-  position: absolute;
-  top: 100px;
-  left: 200px;
-  border: 2px solid black;
-  outline: 2px dashed #21d38f;
-  box-shadow: 0px 0px 20px rgb(33, 211, 143, 0.3), 0px 4px 0px rgba(0, 0, 0, 0.5);
-  background-color: rgb(245, 245, 245, 0.9);
-  z-index: 500;
-  display: none;
-  animation-name: flicker;
-  animation-duration: 0.05s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
+    color: #1f1f1f;
+    font-family: "pixels";
+    width: 1000px;
+    height: 510px;
+    position: absolute;
+    top: 100px;
+    left: 200px;
+    border: 2px solid black;
+    outline: 2px dashed #21d38f;
+    box-shadow: 0px 0px 20px rgb(33, 211, 143, 0.3), 0px 4px 0px rgba(0, 0, 0, 0.5);
+    background-color: rgb(245, 245, 245, 0.9);
+    z-index: 500;
+    display: none;
+    animation-name: flicker;
+    animation-duration: 0.05s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
 }
 
 .floating-window2:hover {
-  z-index: 1000;
-  box-shadow: 0px 0px 30px rgb(33, 211, 143, 0.3), 0px 8px 0px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    box-shadow: 0px 0px 30px rgb(33, 211, 143, 0.3), 0px 8px 0px rgba(0, 0, 0, 0.5);
 }
-
-.Button2-running {
-  padding-top: 2px;
-  direction: rtl;
-  float: right;
-  z-index: 1;
-  overflow: hidden;
-  position: absolute;
-  right: 0;
-  display: none;
-}
-
 
 .floating-window3 {
-  color: #1f1f1f;
-  font-family: "pixels";
-  width: 300px;
-  height: 150px;
-  position: absolute;
-  top: 100px;
-  left: 200px;
-  border: 2px solid black;
-  outline: 2px dashed #21d38f;
-  box-shadow: 0px 0px 20px rgb(33, 211, 143, 0.3), 0px 4px 0px rgba(0, 0, 0, 0.5);
-  background-color: rgb(245, 245, 245, 0.9);
-  z-index: 500;
-  display: none;
-  animation-name: flicker;
-  animation-duration: 0.05s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
+    color: #1f1f1f;
+    font-family: "pixels";
+    width: 300px;
+    height: 150px;
+    position: absolute;
+    top: 100px;
+    left: 200px;
+    border: 2px solid black;
+    outline: 2px dashed #21d38f;
+    box-shadow: 0px 0px 20px rgb(33, 211, 143, 0.3), 0px 4px 0px rgba(0, 0, 0, 0.5);
+    background-color: rgb(245, 245, 245, 0.9);
+    z-index: 500;
+    display: none;
+    animation-name: flicker;
+    animation-duration: 0.05s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
 }
 
 .floating-window3:hover {
-  z-index: 1000;
-  box-shadow: 0px 0px 30px rgb(33, 211, 143, 0.3), 0px 8px 0px rgba(0, 0, 0, 0.5);
-}
-
-.Button3-running {
-  padding-top: 2px;
-  direction: rtl;
-  float: right;
-  z-index: 1;
-  overflow: hidden;
-  position: absolute;
-  right: 0;
-  display: none;
+    z-index: 1000;
+    box-shadow: 0px 0px 30px rgb(33, 211, 143, 0.3), 0px 8px 0px rgba(0, 0, 0, 0.5);
 }
 
 .floating-window4 {
-  color: #1f1f1f;
-  font-family: "pixels";
-  width: 600px;
-  height: 360px;
-  position: absolute;
-  top: 100px;
-  left: 200px;
-  border: 2px solid black;
-  outline: 2px dashed #21d38f;
-  box-shadow: 0px 0px 20px rgb(33, 211, 143, 0.3), 0px 4px 0px rgba(0, 0, 0, 0.5);
-  background-color: rgb(245, 245, 245, 0.9);
-  z-index: 500;
-  display: none;
-  animation-name: flicker;
-  animation-duration: 0.05s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
+    color: #1f1f1f;
+    font-family: "pixels";
+    width: 600px;
+    height: 360px;
+    position: absolute;
+    top: 100px;
+    left: 200px;
+    border: 2px solid black;
+    outline: 2px dashed #21d38f;
+    box-shadow: 0px 0px 20px rgb(33, 211, 143, 0.3), 0px 4px 0px rgba(0, 0, 0, 0.5);
+    background-color: rgb(245, 245, 245, 0.9);
+    z-index: 500;
+    display: none;
+    animation-name: flicker;
+    animation-duration: 0.05s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
 }
 
 .floating-window4:hover {
-  z-index: 1000;
-  box-shadow: 0px 0px 30px rgb(33, 211, 143, 0.3), 0px 8px 0px rgba(0, 0, 0, 0.5);
-}
-
-.Button4-running {
-  padding-top: 2px;
-  direction: rtl;
-  float: right;
-  z-index: 1;
-  overflow: hidden;
-  position: absolute;
-  right: 0;
-  display: none;
+    z-index: 1000;
+    box-shadow: 0px 0px 30px rgb(33, 211, 143, 0.3), 0px 8px 0px rgba(0, 0, 0, 0.5);
 }
 
 .floating-window5 {
-  color: #1f1f1f;
-  font-family: "pixels";
-  width: 700px;
-  height: 200px;
-  position: absolute;
-  top: 100px;
-  left: 200px;
-  border: 2px solid black;
-  outline: 2px dashed rgb(33, 211, 143);
-  box-shadow: 0px 0px 20px rgb(33, 211, 143, 0.3), 0px 4px 0px rgba(0, 0, 0, 0.5);
-  background-color: rgb(245, 245, 245, 0.9);
-  z-index: 500;
-  display: none;
-  animation-name: flicker;
-  animation-duration: 0.05s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
+    color: #1f1f1f;
+    font-family: "pixels";
+    width: 700px;
+    height: 200px;
+    position: absolute;
+    top: 100px;
+    left: 200px;
+    border: 2px solid black;
+    outline: 2px dashed rgb(33, 211, 143);
+    box-shadow: 0px 0px 20px rgb(33, 211, 143, 0.3), 0px 4px 0px rgba(0, 0, 0, 0.5);
+    background-color: rgb(245, 245, 245, 0.9);
+    z-index: 500;
+    display: none;
+    animation-name: flicker;
+    animation-duration: 0.05s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
 }
 
 .floating-window5:hover {
-  z-index: 1000;
-  box-shadow: 0px 0px 30px rgb(33, 211, 143, 0.3), 0px 8px 0px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    box-shadow: 0px 0px 30px rgb(33, 211, 143, 0.3), 0px 8px 0px rgba(0, 0, 0, 0.5);
 }
 
-.Button5-running {
-  padding-top: 2px;
-  direction: rtl;
-  float: right;
-  z-index: 1;
-  overflow: hidden;
-  position: absolute;
-  right: 0;
-  display: none;
+.Button-running {
+    padding-top: 2px;
+    direction: rtl;
+    float: right;
+    z-index: 1;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    display: none;
 }
 
 .header {
-  display: flex;
-  padding: 10px;
-  background-color: whitesmoke;
-  border-bottom: 2px solid black;
-  cursor: move;
+    font-family: "pixels";
+    display: flex;
+    padding: 10px;
+    background-color: whitesmoke;
+    border-bottom: 2px solid black;
+    cursor: move;
 }
 
 .windowoptions {
-  padding-top: 7px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  float: right;
-  position: absolute;
-  margin-right: 10px;
-  right: 0;
-  top: 0;
-  text-align: center;
+    padding-top: 8px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    float: right;
+    position: absolute;
+    margin-right: 10px;
+    right: 0;
+    top: 0;
+    text-align: center;
 }
 
 .minimalise {
-  width: 17px;
-  height: 17px;
-  background-color: #21d38f;
-  box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
-  transition: all 0.05s ease;
-  border: 2px solid black;
-  cursor: pointer;
+    width: 17px;
+    height: 17px;
+    background-color: #21d38f;
+    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
+    transition: all 0.05s ease;
+    border: 2px solid black;
+    cursor: pointer;
 }
 
 .minimalise:hover {
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
-  transform: translateY(2px);
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+    transform: translateY(2px);
 }
 
 .close {
-  width: 17px;
-  height: 17px;
-  background-color: #ff748b;
-  box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
-  transition: all 0.05s ease;
-  border: 2px solid black;
-  cursor: pointer;
+    width: 17px;
+    height: 17px;
+    background-color: #ff748b;
+    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
+    transition: all 0.05s ease;
+    border: 2px solid black;
+    cursor: pointer;
 }
 
 .close:hover {
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
-  transform: translateY(2px);
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+    transform: translateY(2px);
 }
 
 .content {
-  padding: 10px;
+    padding: 10px;
 }
 
 .ve-00 {
-  width: 200px;
-  height: 300px;
-  border-width: 3px;
-  border-style: double;
+    width: 200px;
+    height: 300px;
+    border-width: 3px;
+    border-style: double;
 }
 
 @keyframes crt {
-  from {
-    text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
-  }
+    from {
+        text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
+    }
 
-  to {
-    text-shadow: 0.9px 0px 0.9px #69bef0, -0.9px -0px 0.9px #c2fa69;
-  }
+    to {
+        text-shadow: 0.9px 0px 0.9px #69bef0, -0.9px -0px 0.9px #c2fa69;
+    }
+}
+
+@keyframes crtdiv {
+    from {
+        box-shadow: 1px 0 1px #2c5064, -1px 0 1px #556d2e;
+    }
+
+    to {
+        box-shadow: 0.9px 0px 0.9px #294a5e, -0.9px -0px 0.9px #4a5f28;
+    }
 }
 
 @keyframes flicker {
-  from {
-    box-shadow: 0px 0px 20px rgb(33, 211, 143, 0.3), 0px 4px 0px rgba(0, 0, 0, 0.5);
-  }
+    from {
+        box-shadow: 0px 0px 20px rgb(33, 211, 143, 0.3), 0px 4px 0px rgba(0, 0, 0, 0.5);
+    }
 
-  to {
-    box-shadow: 0px 0px 20px rgba(31, 235, 157, 0.4), 0px 4px 0px rgba(0, 0, 0, 0.5);
-  }
+    to {
+        box-shadow: 0px 0px 20px rgba(31, 235, 157, 0.4), 0px 4px 0px rgba(0, 0, 0, 0.5);
+    }
 }
 
 @keyframes float {
-  0% {
-    transform: translateY(-2px);
-  }
+    0% {
+        transform: translateY(-2px);
+    }
 
-  20% {
-    transform: translateY(0px);
-  }
+    20% {
+        transform: translateY(0px);
+    }
 
-  40% {
-    transform: translateY(1px);
-  }
+    40% {
+        transform: translateY(1px);
+    }
 
-  60% {
-    transform: translateY(-3px);
-  }
+    60% {
+        transform: translateY(-3px);
+    }
 
-  80% {
-    transform: translateY(-6px);
-  }
+    80% {
+        transform: translateY(-6px);
+    }
 }

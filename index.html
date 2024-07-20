@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport", content="width=1024">
-        <title>luzer.town</title>
+        <title id="titleanimation">★ luzer.town ★</title>
         <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
         <link rel="stylesheet" href="css/styles.css" />
         <script src="js/script.js"></script>
@@ -50,23 +50,23 @@
                         <legend>internal directory</legend>
                         <button class="directorybutton" id="toggleButton1">
                             <span class="directorylink">[&#9734]------------[snake]</span>
-                            <span id="Button1running" class="Button1-running">[RUNNING]</span>
+                            <span id="Button1running" class="Button-running">[RUNNING]</span>
                         </button> 
                         <button class="directorybutton" id="toggleButton2" id="terminal-button">
                             <span class="directorylink">[&#9734]------------[art]</span>
-                            <span id="Button2running" class="Button2-running">[RUNNING]</span>
+                            <span id="Button2running" class="Button-running">[RUNNING]</span>
                         </button> 
                         <button class="directorybutton" id="toggleButton3" id="terminal-button">
                             <span class="directorylink">[&#9734]------------[projects]</span>
-                            <span id="Button3running" class="Button3-running">[RUNNING]</span>
+                            <span id="Button3running" class="Button-running">[RUNNING]</span>
                         </button> 
                         <button class="directorybutton" id="toggleButton4" id="terminal-button">
                             <span class="directorylink">[&#9734]------------[portfolio]</span>
-                            <span id="Button4running" class="Button4-running">[RUNNING]</span>
+                            <span id="Button4running" class="Button-running">[RUNNING]</span>
                         </button> 
                         <button class="directorybutton" id="toggleButton5" id="terminal-button">
                             <span class="directorylink">[&#9734]------------[obituary]</span>
-                            <span id="Button5running" class="Button5-running">[RUNNING]</span>
+                            <span id="Button5running" class="Button-running">[RUNNING]</span>
                         </button> 
                     </fieldset>
                     <fieldset class="external-directory" id="terminal-button">
@@ -94,8 +94,43 @@
                     </fieldset>
                     <fieldset class="info">
                         <legend>info</legend>
-                        <div id="datetime"></div>
+                        <div class="contactcontainer">
+                            <div id="datetime" class="time"></div>
+                            <button id="copyEmailBtn" class="contact">[contact]</button>
+                            <p id="email" style="display:none;">luzertown@gmail.com</p>
+                        </div>
                         <div id="loading">|</div>
+                        <div class="volume" id="volumeControls">
+                            <span>volume:</span>
+                            <div class="muteButton" data-volume="0">
+                                <button class="volumeLevel" style="height: 1px;"></button>
+                            </div>
+                            <div class="volumeButton" data-volume="0.01">
+                                <button class="volumeLevel" style="height: 3px;"></button>
+                            </div>
+                            <div class="volumeButton" data-volume="0.05">
+                                <button class="volumeLevel" style="height: 4px;"></button>
+                            </div>
+                            <div class="volumeButton" data-volume="0.1">
+                                <button class="volumeLevel" style="height: 6px;"></button>
+                            </div>
+                            <div class="volumeButton" data-volume="0.2">
+                                <button class="volumeLevel" style="height: 8px;"></button>
+                            </div>
+                            <div class="volumeButton" data-volume="0.3">
+                                <button class="volumeLevel" style="height: 10px;"></button>
+                            </div>
+                            <div class="volumeButton" data-volume="0.5">
+                                <button class="volumeLevel" style="height: 12px;"></button>
+                            </div>
+                            <div class="volumeButton" data-volume="0.75">
+                                <button class="volumeLevel" style="height: 14px;"></button>
+                            </div>
+                            <div class="volumeButton" data-volume="1">
+                                <button class="volumeLevel" style="height: 16px;"></button>
+                            </div>
+                            <span id="volumeLevelCounter" class="volumeLevelCountercss">10%</span>
+                        </div>
                     </fieldset>
                 </div>
             </fieldset>
@@ -187,7 +222,6 @@
                         <img class="shadow" src="../img/low res/Cultslowres.png" alt="cults" onclick="showLargeImage('../img/cults.png')">
                         <img class="shadow" src="../img/low res/I like the way you kiss me lowres.png" alt="iltwykm" onclick="showLargeImage('../img/I like the way you kiss me.png')">
                         <img class="shadow" src="../img/low res/team spiritlowres.png" alt="spirit" onclick="showLargeImage('../img/team spirit.png')">
-                        <img class="shadow" src="../img/low res/disavow.png" alt="disavow" onclick="showLargeImage('../img/disavow.png')">
                         <img class="shadow" src="../img/low res/fallowres.png" alt="fall" onclick="showLargeImage('../img/fall.png')">
                         <img class="shadow" src="../img/low res/nurturelowres.png" alt="nurture" onclick="showLargeImage('../img/nurture.png')">
                         <img class="shadow" src="../img/low res/vertigolowres.png" alt="vertigo" onclick="showLargeImage('../img/vertigo.png')">
@@ -200,6 +234,7 @@
                         <img class="shadow" src="../img/low res/computer black low res.png" alt="computer black" onclick="showLargeImage('../img/computer black.png')">
                         <img class="shadow" src="../img/low res/powerlowres.png" alt="power" onclick="showLargeImage('../img/power.png')">
                         <img class="shadow" src="../img/low res/tranquil lowres.png" alt="tranquil" onclick="showLargeImage('../img/tranquil.png')">
+                        <img class="shadow" src="../img/low res/www-lowres.png" alt="www" onclick="showLargeImage('../img/www.png')">
                     </div>
                     <div class="overlay" id="overlay" onclick="hideLargeImage()">
                         <img src="" alt="" id="largeImage">

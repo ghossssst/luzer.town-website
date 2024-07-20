@@ -49,6 +49,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
         { buttonId: 'toggleButton5', windowId: 'floatingWindow5', runningId: "Button5running"},
     ];
 
+    let highestZIndex = 1000;  // Starting z-index for the first window
+
     windows.forEach(({ buttonId, windowId, runningId }) => {
         const toggleButton = document.getElementById(buttonId);
         const floatingWindow = document.getElementById(windowId);
@@ -72,6 +74,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
             offsetY = e.clientY - floatingWindow.getBoundingClientRect().top;
             document.addEventListener('mousemove', onMouseMove);
             document.addEventListener('mouseup', onMouseUp);
+            
+            bringToFront(floatingWindow); // Bring the window to the front when starting to drag
         });
 
         function onMouseMove(e) {
@@ -97,6 +101,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 floatingWindow.style.top = `${randomY}px`;
                 floatingWindow.style.display = 'block';
                 running.style.display = 'block';
+                bringToFront(floatingWindow); // Bring the window to the front when toggled
             } else {
                 floatingWindow.style.display = 'none';
                 running.style.display = 'none';
@@ -112,6 +117,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
             floatingWindow.style.display = 'none';
             running.style.display = 'none';
         });
+
+        function bringToFront(window) {
+            highestZIndex++;
+            window.style.zIndex = highestZIndex;
+        }
+
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
     });
 });
 
@@ -237,6 +251,25 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(animate, 300);    
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const frames = [
+        "★ luzer.town ★",
+        "✭ luzer.town ✭",
+        "☆ luzer.town ☆",
+        "✭ luzer.town ✭"
+    ];
+    
+    let currentFrame = 0;
+    const asciiArtElement = document.getElementById('titleanimation');
+    
+    function animate() {
+        asciiArtElement.textContent = frames[currentFrame];
+        currentFrame = (currentFrame + 1) % frames.length;
+    }
+    
+    setInterval(animate, 1000);    
+});
+
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -335,4 +368,85 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    const audioElements = document.querySelectorAll("audio");
+    const muteButton = document.querySelector(".muteButton");
+    const volumeButtons = document.querySelectorAll(".volumeButton");
+    const volumeLevelCounter = document.getElementById("volumeLevelCounter");
+
+    // Function to set volume and update counter
+    function setVolume(volume) {
+        audioElements.forEach(audio => {
+            audio.volume = volume;
+            audio.muted = false;
+        });
+        volumeLevelCounter.textContent = `${Math.round(volume * 100)}%`;
+        updateButtonColors(volume);
+    }
+
+    // Function to update button colors
+    function updateButtonColors(volume) {
+        volumeButtons.forEach(button => {
+            const buttonVolume = parseFloat(button.getAttribute("data-volume"));
+            if (buttonVolume <= volume) {
+                button.querySelector(".volumeLevel").classList.remove("louder");
+            } else {
+                button.querySelector(".volumeLevel").classList.add("louder");
+            }
+        });
+    }
+
+    // Event listener for mute button
+    muteButton.addEventListener("click", function() {
+        audioElements.forEach(audio => {
+            audio.muted = !audio.muted;
+            if (audio.muted) {
+                volumeLevelCounter.textContent = `0%`;
+                updateButtonColors(0);
+            } else {
+                // Restore volume to the last set level
+                const lastVolume = parseFloat(volumeLevelCounter.textContent) / 100;
+                setVolume(lastVolume);
+            }
+        });
+    });
+
+    // Event listener for volume buttons
+    volumeButtons.forEach(button => {
+        button.addEventListener("click", function() {
+            const volume = parseFloat(this.getAttribute("data-volume"));
+            setVolume(volume);
+        });
+    });
+
+    // Event listener for scrolling over volume controls
+    const volumeControls = document.getElementById('volumeControls');
+
+    volumeControls.addEventListener("wheel", function(event) {
+        event.preventDefault();
+        let currentVolume = parseFloat(volumeLevelCounter.textContent) / 100;
+        let newVolume = currentVolume + (event.deltaY < 0 ? 0.05 : -0.05); // Scroll up increases volume, scroll down decreases volume
+        newVolume = Math.max(0, Math.min(1, newVolume)); // Clamp volume between 0 and 1
+        setVolume(newVolume);
+    });
+
+    // Initialize volume control
+    const initialVolume = 0.1; // Set initial volume
+    setVolume(initialVolume);
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('copyEmailBtn').addEventListener('click', function() {
+        var button = document.getElementById('copyEmailBtn');
+        var email = document.getElementById('email').textContent;
+
+        var tempInput = document.createElement('input');
+        tempInput.value = email;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        button.innerHTML = '[copied]';
+    });
+});
 
