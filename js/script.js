@@ -39,82 +39,144 @@ function copyToClipboard(text) {
     alert('Email address copied to clipboard: ' + text);
 }
 
-document.addEventListener('DOMContentLoaded', (event) => {
-
+document.addEventListener('DOMContentLoaded', () => {
     const windows = [
-        { buttonId: 'toggleButton1', windowId: 'floatingWindow1', runningId: "Button1running"},
-        { buttonId: 'toggleButton2', windowId: 'floatingWindow2', runningId: "Button2running"},
-        { buttonId: 'toggleButton3', windowId: 'floatingWindow3', runningId: "Button3running"},
-        { buttonId: 'toggleButton4', windowId: 'floatingWindow4', runningId: "Button4running"},
-        { buttonId: 'toggleButton5', windowId: 'floatingWindow5', runningId: "Button5running"},
+        { buttonId: 'toggleButton1', windowId: 'floatingWindow1', runningId: "Button1running" },
+        { buttonId: 'toggleButton2', windowId: 'floatingWindow2', runningId: "Button2running" },
+        { buttonId: 'toggleButton3', windowId: 'floatingWindow3', runningId: "Button3running", contentId: "content3" },
+        { buttonId: 'toggleButton4', windowId: 'floatingWindow4', runningId: "Button4running" },
+        { buttonId: 'toggleButton5', windowId: 'floatingWindow5', runningId: "Button5running" },
+        { buttonId: 'toggleButton6', windowId: 'floatingWindow6', runningId: "Button6running" }
     ];
 
     let highestZIndex = 1000;  
     let lowestZIndex = 999;
+    let cascadeOffsetX = 20;
+    let cascadeOffsetY = 20;
+    let nextWindowX = 300; // Initial X position for the first window
+    let nextWindowY = 50; // Initial Y position for the first window
 
-    windows.forEach(({ buttonId, windowId, runningId }) => {
+    let originalContent = '';
+
+    windows.forEach(({ buttonId, windowId, runningId, contentId }) => {
         const toggleButton = document.getElementById(buttonId);
         const floatingWindow = document.getElementById(windowId);
         const running = document.getElementById(runningId);
-        const header = floatingWindow.querySelector('.header');
-        const closeButton = floatingWindow.querySelector('.close');
-        const minimaliseButton = floatingWindow.querySelector('.minimalise');
+        const header = floatingWindow ? floatingWindow.querySelector('.header') : null;
+        const closeButton = floatingWindow ? floatingWindow.querySelector('.close') : null;
+        const minimaliseButton = floatingWindow ? floatingWindow.querySelector('.minimalise') : null;
+        const contentDiv = contentId ? document.getElementById(contentId) : null;
+
+        // Ensure that the elements exist before proceeding
+        if (!floatingWindow || !toggleButton || (contentId && !contentDiv)) {
+            console.error(`One or more elements not found for buttonId: ${buttonId}, windowId: ${windowId}, contentId: ${contentId}`);
+            return;
+        }
+
+        originalContent = contentDiv ? contentDiv.innerHTML : '';
 
         floatingWindow.style.display = 'none';
         floatingWindow.style.position = 'absolute';
 
-        running.style.display = 'none';
+        if (running) running.style.display = 'none';
 
         let isDragging = false;
         let offsetX = 0;
         let offsetY = 0;
 
-        header.addEventListener('mousedown', (e) => {
+        const startDragging = (e) => {
             isDragging = true;
             offsetX = e.clientX - floatingWindow.getBoundingClientRect().left;
             offsetY = e.clientY - floatingWindow.getBoundingClientRect().top;
             document.addEventListener('mousemove', onMouseMove);
             document.addEventListener('mouseup', onMouseUp);
-            
+            document.addEventListener('touchmove', onTouchMove);
+            document.addEventListener('touchend', onTouchEnd);
+
             bringToFront(floatingWindow); // Bring the window to the front when starting to drag
-        });
+        };
 
-        function onMouseMove(e) {
-            if (isDragging) {
-                const x = e.clientX - offsetX;
-                const y = e.clientY - offsetY;
-                floatingWindow.style.left = `${x}px`;
-                floatingWindow.style.top = `${y}px`;
-            }
-        }
-
-        function onMouseUp() {
+        const stopDragging = () => {
             isDragging = false;
             document.removeEventListener('mousemove', onMouseMove);
             document.removeEventListener('mouseup', onMouseUp);
-        }
+            document.removeEventListener('touchmove', onTouchMove);
+            document.removeEventListener('touchend', onTouchEnd);
+        };
 
-        toggleButton.addEventListener('click', () => {
+        const onMouseMove = (e) => {
+            if (isDragging) {
+                updateWindowPosition(e.clientX, e.clientY);
+            }
+        };
+
+        const onMouseUp = () => {
+            stopDragging();
+        };
+
+        const onTouchMove = (e) => {
+            if (isDragging) {
+                const touch = e.touches[0];
+                updateWindowPosition(touch.clientX, touch.clientY);
+            }
+        };
+
+        const onTouchEnd = () => {
+            stopDragging();
+        };
+
+        const updateWindowPosition = (clientX, clientY) => {
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            const windowWidth = floatingWindow.offsetWidth;
+            const windowHeight = floatingWindow.offsetHeight;
+
+            let x = clientX - offsetX;
+            let y = clientY - offsetY;
+
+            // Constrain x and y to ensure the window stays within the viewport
+            x = Math.max(0, Math.min(viewportWidth - windowWidth, x));
+            y = Math.max(0, Math.min(viewportHeight - windowHeight, y));
+
+            floatingWindow.style.left = `${x}px`;
+            floatingWindow.style.top = `${y}px`;
+        };
+
+        if (header) header.addEventListener('mousedown', startDragging);
+        if (header) header.addEventListener('touchstart', startDragging);
+
+        if (toggleButton) toggleButton.addEventListener('click', () => {
             if (floatingWindow.style.display === 'none') {
-                const randomX = getRandomInt(200, 500);
-                const randomY = getRandomInt(100, 200);
-                floatingWindow.style.left = `${randomX}px`;
-                floatingWindow.style.top = `${randomY}px`;
+                // Position the window in a cascading manner
+                floatingWindow.style.left = `${nextWindowX}px`;
+                floatingWindow.style.top = `${nextWindowY}px`;
                 floatingWindow.style.display = 'block';
-                running.style.display = 'block';
+                if (running) running.style.display = 'block';
                 bringToFront(floatingWindow); // Bring the window to the front when toggled
+
+                // Update the position for the next window
+                nextWindowX += cascadeOffsetX;
+                nextWindowY += cascadeOffsetY;
+
+                // Reset positions if they go out of bounds
+                if (nextWindowX + floatingWindow.offsetWidth > window.innerWidth) {
+                    nextWindowX = 50;
+                }
+                if (nextWindowY + floatingWindow.offsetHeight > window.innerHeight) {
+                    nextWindowY = 50;
+                }
             } else {
                 floatingWindow.style.display = 'none';
-                running.style.display = 'none';
+                if (running) running.style.display = 'none';
             }
         });
 
-        closeButton.addEventListener('click', () => {
+        if (closeButton) closeButton.addEventListener('click', () => {
             floatingWindow.style.display = 'none';
-            running.style.display = 'none';
+            if (running) running.style.display = 'none';
         });
 
-        minimaliseButton.addEventListener('click', () => {
+        if (minimaliseButton) minimaliseButton.addEventListener('click', () => {
             sendToBack(floatingWindow);
         });
 
@@ -128,8 +190,42 @@ document.addEventListener('DOMContentLoaded', (event) => {
             window.style.zIndex = lowestZIndex;
         }
 
-        function getRandomInt(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
+        // Function to add click event listener to "planted aquarium" link
+        function addAquariumLinkListener() {
+            const aquariumLink = document.getElementById('aquariumLink');
+            if (aquariumLink) {
+                aquariumLink.addEventListener('click', (e) => {
+                    e.preventDefault(); // Prevent default link behavior
+                    fetch('../pages/aquarium.html')
+                        .then(response => response.text())
+                        .then(data => {
+                            if (contentDiv) {
+                                originalContent = contentDiv.innerHTML; // Save the current content
+                                contentDiv.innerHTML = data; // Update content with fetched HTML
+                                document.getElementById('backButton').style.visibility = 'visible'; // Show the "Back" button
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error fetching the page:', error);
+                            if (contentDiv) contentDiv.innerHTML = '<p>Error loading content.</p>';
+                        });
+                });
+            }
+        }
+
+        // Call the function to add the event listener initially
+        addAquariumLinkListener();
+
+        // Add click event listener to "Back" button
+        const backButton = document.getElementById('backButton');
+        if (backButton) {
+            backButton.addEventListener('click', () => {
+                if (contentDiv) {
+                    contentDiv.innerHTML = originalContent; // Restore the original content
+                    backButton.style.visibility = 'hidden'; // Hide the "Back" button
+                    addAquariumLinkListener(); // Re-attach the event listener for the aquarium link
+                }
+            });
         }
     });
 });
@@ -210,7 +306,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.addEventListener("DOMContentLoaded", function() {
     const clickSound = document.getElementById('click-sound');
-    const clickButtons = document.querySelectorAll('.directorybutton, .minimalise, .close');
+    const clickButtons = document.querySelectorAll('.directorybutton, .minimalise, .close, .infobutton, .copyEmailBtn, .back-button');
 
     clickSound.volume = 0.4;
 
@@ -451,7 +547,7 @@ document.addEventListener('DOMContentLoaded', function() {
         tempInput.select();
         document.execCommand('copy');
         document.body.removeChild(tempInput);
-        button.innerHTML = '[copied]';
+        button.innerHTML = '[&#9734]--------[copied!]';
     });
 });
 

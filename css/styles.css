@@ -40,6 +40,39 @@ a:link {
     text-decoration: none;
 }
 
+a:visited {
+    color: #1f1f1f;
+    text-decoration: none;
+}
+
+.underlinedlink:link {
+    text-decoration: underline;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background-color: rgb(245, 245, 245, 0);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: whitesmoke;
+    border-left: 2px solid #000000;
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+    box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #21d38f;
+}
+
 .screenGrid {
     position: absolute;
     height: 100%;
@@ -133,40 +166,8 @@ a:link {
     animation: crtdiv 0.05s alternate infinite;
 }
 
-.contactcontainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.contact {
-    cursor: pointer;
-    padding: 0px;
-    margin: 0px;
-    padding-bottom: 3px;
-    padding-left: 2px;
-    width: 60px;
-    height: 25px;
-    background-color: #00000000;
-    color: #21d38f;
-    align-items: center;
-    border-style: none;
-    transition: all 0.5s ease;
-    text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
-    animation-name: crt;
-    animation-duration: 0.05s;
-    animation-direction: alternate;
-    animation-iteration-count: infinite;
-}
-
-.contact:hover {
-    color: rgb(0, 0, 0);
-    background-color: #21d38f;
-}
-
-
 .volume {
-    margin-top: 60px;
+    margin-top: 18px;
     position: relative;
     bottom: 0px;
 }
@@ -180,7 +181,8 @@ a:link {
     animation: crt 0.05s alternate infinite;
 }
 
-.volumeButton, .muteButton {
+.volumeButton,
+.muteButton {
     width: 7px;
     border: none;
     cursor: pointer;
@@ -204,7 +206,7 @@ a:link {
     position: absolute;
     direction: ltr;
     margin-top: 3px;
-    right: 2px; 
+    right: 2px;
 }
 
 .web {
@@ -265,9 +267,45 @@ a:link {
     animation-iteration-count: infinite;
 }
 
+.infobutton {
+    cursor: pointer;
+    padding: 0px;
+    margin: 0px;
+    padding-bottom: 4px;
+    padding-left: 2px;
+    width: 200px;
+    height: 25px;
+    background-color: #00000000;
+    color: #21d38f;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-style: none;
+    transition: all 0.5s ease;
+    text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
+    animation-name: crt;
+    animation-duration: 0.05s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+
 .directorybutton:hover {
     color: rgb(0, 0, 0);
     background-color: #21d38f;
+}
+
+.infobutton:hover {
+    color: rgb(0, 0, 0);
+    background-color: #21d38f;
+}
+
+.headertext {
+    margin-bottom: 10px;
+}
+
+.subtext {
+    font-size: 12px;
 }
 
 .board {
@@ -284,7 +322,7 @@ a:link {
 
 .image-grid {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 10px;
     width: 100%;
 }
@@ -378,7 +416,7 @@ a:link {
     color: #1f1f1f;
     font-family: "pixels";
     width: 1000px;
-    height: 510px;
+    height: 700px;
     position: absolute;
     top: 100px;
     left: 200px;
@@ -399,11 +437,19 @@ a:link {
     box-shadow: 0px 0px 30px rgb(33, 211, 143, 0.3), 0px 8px 0px rgba(0, 0, 0, 0.5);
 }
 
+#floatingWindow2 .content {
+    padding: 10px;
+    height: calc(100% - 70px);
+    /* Adjust to account for header height */
+    overflow: auto;
+    /* Ensures content is scrollable */
+}
+
 .floating-window3 {
     color: #1f1f1f;
     font-family: "pixels";
-    width: 300px;
-    height: 150px;
+    width: 800px;
+    height: 600px;
     position: absolute;
     top: 100px;
     left: 200px;
@@ -422,6 +468,14 @@ a:link {
 .floating-window3:hover {
     z-index: 1000;
     box-shadow: 0px 0px 30px rgb(33, 211, 143, 0.3), 0px 8px 0px rgba(0, 0, 0, 0.5);
+}
+
+#floatingWindow3 .content {
+    padding: 10px;
+    height: calc(100% - 70px);
+    /* Adjust to account for header height */
+    overflow: auto;
+    /* Ensures content is scrollable */
 }
 
 .floating-window4 {
@@ -474,6 +528,31 @@ a:link {
     box-shadow: 0px 0px 30px rgb(33, 211, 143, 0.3), 0px 8px 0px rgba(0, 0, 0, 0.5);
 }
 
+.floating-window6 {
+    color: #1f1f1f;
+    font-family: "pixels";
+    width: 700px;
+    height: 200px;
+    position: absolute;
+    top: 100px;
+    left: 200px;
+    border: 2px solid black;
+    outline: 2px dashed rgb(33, 211, 143);
+    box-shadow: 0px 0px 20px rgb(33, 211, 143, 0.3), 0px 4px 0px rgba(0, 0, 0, 0.5);
+    background-color: rgb(245, 245, 245, 0.9);
+    z-index: 500;
+    display: none;
+    animation-name: flicker;
+    animation-duration: 0.05s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+.floating-window6:hover {
+    z-index: 1000;
+    box-shadow: 0px 0px 30px rgb(33, 211, 143, 0.3), 0px 8px 0px rgba(0, 0, 0, 0.5);
+}
+
 .Button-running {
     padding-top: 2px;
     direction: rtl;
@@ -495,9 +574,9 @@ a:link {
 }
 
 .windowoptions {
-    padding-top: 8px;
+    padding-top: 8px;   
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
     float: right;
     position: absolute;
@@ -505,6 +584,22 @@ a:link {
     right: 0;
     top: 0;
     text-align: center;
+}
+
+.back-button {
+    line-height: 19px;
+    width: 17px;
+    height: 17px;
+    background-color: #ffac74;
+    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
+    transition: all 0.05s ease;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+    transform: translateY(2px);
 }
 
 .minimalise {
