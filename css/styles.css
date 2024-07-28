@@ -49,17 +49,14 @@ a:visited {
     text-decoration: underline;
 }
 
-/* width */
 ::-webkit-scrollbar {
     width: 20px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
     background-color: rgb(245, 245, 245, 0);
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
     background: whitesmoke;
     border-left: 2px solid #000000;
@@ -68,7 +65,6 @@ a:visited {
     box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.5);
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #21d38f;
 }
@@ -371,7 +367,6 @@ a:visited {
 .internalwindowbutton:hover {
     color: white;
     background-color: #ff748b;
-    /*background-color: #89ccc5;*/
     transform: translateY(4px);
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
 }
@@ -395,7 +390,6 @@ a:visited {
 .internalwindowbuttonPersonal:hover {
     color: white;
     background-color: #ff748b;
-    /*background-color: #89ccc5;*/
     transform: translateY(4px);
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
 }
@@ -419,7 +413,6 @@ a:visited {
 .windowbutton:hover {
     color: white;
     background-color: #ff748b;
-    /*background-color: #89ccc5;*/
     transform: translateY(4px);
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
 }
@@ -487,9 +480,7 @@ a:visited {
 #floatingWindow2 .content {
     padding: 10px;
     height: calc(100% - 70px);
-    /* Adjust to account for header height */
     overflow: auto;
-    /* Ensures content is scrollable */
 }
 
 .floating-window3 {
@@ -520,9 +511,7 @@ a:visited {
 #floatingWindow3 .content {
     padding: 10px;
     height: calc(100% - 70px);
-    /* Adjust to account for header height */
     overflow: auto;
-    /* Ensures content is scrollable */
 }
 
 .floating-window4 {
@@ -598,6 +587,12 @@ a:visited {
 .floating-window6:hover {
     z-index: 1000;
     box-shadow: 0px 0px 30px rgb(33, 211, 143, 0.3), 0px 8px 0px rgba(0, 0, 0, 0.5);
+}
+
+#floatingWindow6 .content {
+    padding: 10px;
+    height: calc(100% - 70px);
+    overflow: auto;
 }
 
 .Button-running {
