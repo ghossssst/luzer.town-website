@@ -29,16 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 });
 
-function copyToClipboard(text) {
-    const textarea = document.createElement('textarea');
-    textarea.value = text;
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textarea);
-    alert('Email address copied to clipboard: ' + text);
-}
-
 document.addEventListener('DOMContentLoaded', () => {
     const windows = [
         { buttonId: 'toggleButton1', windowId: 'floatingWindow1', runningId: "Button1running" },
@@ -46,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { buttonId: 'toggleButton3', windowId: 'floatingWindow3', runningId: "Button3running", contentId: "content3" },
         { buttonId: 'toggleButton4', windowId: 'floatingWindow4', runningId: "Button4running" },
         { buttonId: 'toggleButton5', windowId: 'floatingWindow5', runningId: "Button5running" },
-        { buttonId: 'toggleButton6', windowId: 'floatingWindow6', runningId: "Button6running" }
+        { buttonId: 'toggleButton6', windowId: 'floatingWindow6', runningId: "Button6running", contentId: "content6" }
     ];
 
     let highestZIndex = 1000;  
@@ -55,8 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let cascadeOffsetY = 20;
     let nextWindowX = 300; // Initial X position for the first window
     let nextWindowY = 50; // Initial Y position for the first window
-
-    let originalContent = '';
 
     windows.forEach(({ buttonId, windowId, runningId, contentId }) => {
         const toggleButton = document.getElementById(buttonId);
@@ -73,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        originalContent = contentDiv ? contentDiv.innerHTML : '';
+        let originalContent = contentDiv ? contentDiv.innerHTML : '';
 
         floatingWindow.style.display = 'none';
         floatingWindow.style.position = 'absolute';
@@ -190,19 +178,30 @@ document.addEventListener('DOMContentLoaded', () => {
             window.style.zIndex = lowestZIndex;
         }
 
-        // Function to add click event listener to "planted aquarium" link
-        function addAquariumLinkListener() {
-            const aquariumLink = document.getElementById('aquariumLink');
-            if (aquariumLink) {
-                aquariumLink.addEventListener('click', (e) => {
+        // Function to add click event listeners to all a elements within the window
+        function addinternalwindowbuttonPersonalListeners() {
+            const links = floatingWindow.querySelectorAll('.internalNavLink');
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
                     e.preventDefault(); // Prevent default link behavior
-                    fetch('../pages/aquarium.html')
+                    const option = link.textContent.trim().toLowerCase(); // Extract option from link text
+                    fetch(`../pages/${option}.html`)
                         .then(response => response.text())
                         .then(data => {
                             if (contentDiv) {
                                 originalContent = contentDiv.innerHTML; // Save the current content
                                 contentDiv.innerHTML = data; // Update content with fetched HTML
-                                document.getElementById('backButton').style.visibility = 'visible'; // Show the "Back" button
+                                const backButton = floatingWindow.querySelector('.back-button');
+                                if (backButton) {
+                                    backButton.style.visibility = 'visible'; // Show the "Back" button
+
+                                    // Attach the event listener to the "Back" button for this specific window
+                                    backButton.addEventListener('click', () => {
+                                        contentDiv.innerHTML = originalContent; // Restore the original content
+                                        backButton.style.visibility = 'hidden'; // Hide the "Back" button
+                                        addinternalwindowbuttonPersonalListeners(); // Re-attach the event listeners for the personal links
+                                    }, { once: true });
+                                }
                             }
                         })
                         .catch(error => {
@@ -210,25 +209,14 @@ document.addEventListener('DOMContentLoaded', () => {
                             if (contentDiv) contentDiv.innerHTML = '<p>Error loading content.</p>';
                         });
                 });
-            }
-        }
-
-        // Call the function to add the event listener initially
-        addAquariumLinkListener();
-
-        // Add click event listener to "Back" button
-        const backButton = document.getElementById('backButton');
-        if (backButton) {
-            backButton.addEventListener('click', () => {
-                if (contentDiv) {
-                    contentDiv.innerHTML = originalContent; // Restore the original content
-                    backButton.style.visibility = 'hidden'; // Hide the "Back" button
-                    addAquariumLinkListener(); // Re-attach the event listener for the aquarium link
-                }
             });
         }
+
+        // Call the function to add the event listeners initially
+        addinternalwindowbuttonPersonalListeners();
     });
 });
+
 
 document.addEventListener("DOMContentLoaded", function() {
     const spiderContainer = document.getElementById('spider-container');
