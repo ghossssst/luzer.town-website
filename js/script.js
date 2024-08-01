@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { buttonId: 'toggleButton6', windowId: 'floatingWindow6', runningId: "Button6running", contentId: "content6" }
     ];
 
-    let highestZIndex = 1000;  
+    let highestZIndex = 1000;
     let lowestZIndex = 999;
     let cascadeOffsetX = 20;
     let cascadeOffsetY = 20;
@@ -74,8 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const startDragging = (e) => {
             isDragging = true;
-            offsetX = e.clientX - floatingWindow.getBoundingClientRect().left;
-            offsetY = e.clientY - floatingWindow.getBoundingClientRect().top;
+            const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+            const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+            offsetX = clientX - floatingWindow.getBoundingClientRect().left;
+            offsetY = clientY - floatingWindow.getBoundingClientRect().top;
             document.addEventListener('mousemove', onMouseMove);
             document.addEventListener('mouseup', onMouseUp);
             document.addEventListener('touchmove', onTouchMove);
@@ -130,8 +132,12 @@ document.addEventListener('DOMContentLoaded', () => {
             floatingWindow.style.top = `${y}px`;
         };
 
-        if (header) header.addEventListener('mousedown', startDragging);
-        if (header) header.addEventListener('touchstart', startDragging);
+        if (header) {
+            header.addEventListener('mousedown', startDragging);
+            header.addEventListener('touchstart', (e) => {
+                startDragging(e);
+            });
+        }
 
         if (toggleButton) toggleButton.addEventListener('click', () => {
             if (floatingWindow.style.display === 'none') {
@@ -223,57 +229,57 @@ document.addEventListener("DOMContentLoaded", function() {
     const spiderPre = document.getElementById('spider-pre');
     const spiderSound = document.getElementById('spider-sound');
 
-    const originalContent = `  ''"~,,.~"'/|
-       ',  / |
-         '/  |
-          ', |
-            .|
-             |
-             |
-             |
-             |
-             |
-             |
-             |
-             |
-             |
-             |
-             |
-           , | ,
-          .| | |.
-          || | ||
-          || | ||
-          \\\\(^)//
-           //8\\\\  
-           \\' '/
-            ' '
+    const originalContent = `''"~,,.~"'/|
+     ',  / |
+       '/  |
+        ', |
+          .|
+           |
+           |
+           |
+           |
+           |
+           |
+           |
+           |
+           |
+           |
+           |
+         , | ,
+        .| | |.
+        || | ||
+        || | ||
+        \\\\(^)//
+         //8\\\\  
+         \\' '/
+          ' '
     `;
 
-    const newContent = `  ''"~,,.~"'/|
-       ',  / |
-         '/  |
-          ', |
-            .|
-             |
-             |
-             |
-             |
-             |
-             |
-             |
-             |
-             |
-             |
-             |
-             |
-           , | ,
-          .| | |.
-          || | ||
-          || | ||
-          \\\\(^)//
-           //8\\\\  
-           \\' '/
-            ' '
+    const newContent = `''"~,,.~"'/|
+     ',  / |
+       '/  |
+        ', |
+          .|
+           |
+           |
+           |
+           |
+           |
+           |
+           |
+           |
+           |
+           |
+           |
+           |
+         , | ,
+        .| | |.
+        || | ||
+        || | ||
+        \\\\(^)//
+         //8\\\\  
+         \\' '/
+          ' '
     `;
 
     spiderContainer.addEventListener('mouseover', function() {
