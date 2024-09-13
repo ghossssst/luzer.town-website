@@ -241,10 +241,6 @@ document.addEventListener("DOMContentLoaded", function() {
            |
            |
            |
-           |
-           |
-           |
-           |
          , | ,
         .| | |.
         || | ||
@@ -260,10 +256,6 @@ document.addEventListener("DOMContentLoaded", function() {
        '/  |
         ', |
           .|
-           |
-           |
-           |
-           |
            |
            |
            |
@@ -300,7 +292,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.addEventListener("DOMContentLoaded", function() {
     const clickSound = document.getElementById('click-sound');
-    const clickButtons = document.querySelectorAll('.directorybutton, .minimalise, .close, .infobutton, .copyEmailBtn, .back-button');
+    const clickButtons = document.querySelectorAll('.directorybutton, .minimalise, .close, .infobutton, .copyEmailBtn, .back-button, .internalwindowbuttonPersonal, .internalwindowbutton');
 
     clickSound.volume = 0.4;
 
@@ -347,22 +339,58 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    const frames = [
-        "★ luzer.town ★",
-        "✭ luzer.town ✭",
-        "☆ luzer.town ☆",
-        "✭ luzer.town ✭"
+    const visibleFrames = [
+        "˵♥ᴗ♥˵",
+        "˵♡ᴗ♡˵",
+        "˵♥ᴗ♥˵",
+        "˵♡ᴗ♡˵"
     ];
-    
+
+    const hiddenFrames = [
+        "˵𐌗ᴗ𐌗˵",
+        "˵𐌗ᴗ𐌗˵",
+        "˵⠀ᴗ⠀˵"
+    ];
+
     let currentFrame = 0;
-    const asciiArtElement = document.getElementById('titleanimation');
-    
-    function animate() {
-        asciiArtElement.textContent = frames[currentFrame];
+    let intervalID;
+    const titleElement = document.getElementById("titleanimation");
+    const originalTitle = document.title;
+    let isPageHidden = false;  // Track whether the page is hidden
+
+    // Function to animate title
+    function animateTitle() {
+        const frames = isPageHidden ? hiddenFrames : visibleFrames;  // Choose frames based on visibility
+        titleElement.textContent = frames[currentFrame];
+        document.title = frames[currentFrame]; // Update the <title>
         currentFrame = (currentFrame + 1) % frames.length;
     }
-    
-    setInterval(animate, 1000);    
+
+    // Start the animation
+    function startAnimation() {
+        intervalID = setInterval(animateTitle, 400);  // Store the interval ID
+    }
+
+    // Stop the animation
+    function stopAnimation() {
+        clearInterval(intervalID);
+    }
+
+    // Start the animation when the page loads
+    startAnimation();
+
+    // Listen for visibility changes
+    document.addEventListener("visibilitychange", function() {
+        isPageHidden = document.hidden;  // Set whether the page is hidden or visible
+        currentFrame = 0;  // Reset the frame index
+        if (document.hidden) {
+            stopAnimation();  // Stop the current animation
+            startAnimation();  // Start the new animation with hiddenFrames
+        } else {
+            stopAnimation();  // Stop the hidden state animation
+            startAnimation();  // Restart with visibleFrames
+        }
+    });
 });
 
 
@@ -465,6 +493,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.addEventListener("DOMContentLoaded", function() {
     const audioElements = document.querySelectorAll("audio");
+    const iframe = document.getElementById('mediaIframe');
     const muteButton = document.querySelector(".muteButton");
     const volumeButtons = document.querySelectorAll(".volumeButton");
     const volumeLevelCounter = document.getElementById("volumeLevelCounter");
@@ -477,6 +506,16 @@ document.addEventListener("DOMContentLoaded", function() {
         });
         volumeLevelCounter.textContent = `${Math.round(volume * 100)}%`;
         updateButtonColors(volume);
+        
+        if (iframe.contentWindow) {
+            const audioElements = iframe.contentWindow.document.querySelectorAll('audio, video');
+            audioElements.forEach(audio => {
+                audio.volume = volume;
+                audio.muted = false;
+            });
+            volumeLevelCounter.textContent = `${Math.round(volume * 100)}%`;
+            updateButtonColors(volume);
+        }
     }
 
     // Function to update button colors

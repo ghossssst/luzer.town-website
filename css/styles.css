@@ -166,9 +166,6 @@ a:visited {
     margin-top: 18px;
     position: relative;
     bottom: 0px;
-}
-
-#volumeControls {
     display: flex;
     align-items: baseline;
     gap: 3px;
@@ -616,7 +613,7 @@ a:visited {
 }
 
 .windowoptions {
-    padding-top: 8px;   
+    padding-top: 8px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
@@ -683,6 +680,29 @@ a:visited {
     height: 300px;
     border-width: 3px;
     border-style: double;
+}
+
+.musicicon {
+    padding-left: 5px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-right: 4px;
+    margin-bottom: 10px;
+    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+    width: 150px;
+    height: 30px;
+    box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.5);
+    transition: all 0.2s ease;
+}
+
+.musicicon:hover {
+    color: white;
+    background-color: #ff748b;
+    transform: translateY(4px);
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
 }
 
 @keyframes crt {
