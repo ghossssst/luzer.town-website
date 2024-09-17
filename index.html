@@ -9,7 +9,189 @@
         <script src="js/script.js"></script>
     </head>
 
-    <body>
+    <body onresize="generateFixedStars()" style="overflow: hidden;">
+        <div class="stars">
+            <div class="moon">
+                <pre>
+                      _,._
+                    ,' ,' `
+                   /  /
+                   |  '
+                   \   `.__,/
+                    `._  _,'
+                       ¯¯
+                </pre>
+            </div>
+            <div class="stationarystar1">
+                <pre>
+                    .
+                    |
+                  --+--
+                    |
+                    .
+                </pre>
+            </div>
+            <div class="stationarystar2">
+                <pre>
+                     |
+                    -+-
+                     |
+                </pre>
+            </div>
+            <div class="stationarystar3">
+                <pre>
+                    .
+    
+                    .
+                    .
+                    :
+                    ¦
+                    |
+               - -~<+>~- -
+                    |
+                    ¦
+                    :
+                    .
+                    .
+    
+                    .
+                </pre>
+            </div>
+            <div class="stationarystar4">
+                <pre>
+                    .
+                    |
+                  --+--
+                    |
+                    .
+                </pre>
+            </div>
+            <div class="stationarystar5">
+                <pre>
+                    .
+                    |
+                  --+--
+                    |
+                    .
+                </pre>
+            </div>
+            <div class="stationarystar6">
+                <pre>
+                     |
+                    -+-
+                     |
+                </pre>
+            </div>
+            <div class="stationarystar7">
+                <pre>
+                     |
+                    -+-
+                     |
+                </pre>
+            </div>
+            <div class="stationarystar8">
+                <pre>
+                     |
+                    -+-
+                     |
+                </pre>
+            </div>
+            <div class="stationarystar9">
+                <pre>
+                     |
+                    -+-
+                     |
+                </pre>
+            </div>
+            <div class="stationarystar10">
+                <pre>
+                     |
+                    -+-
+                     |
+                </pre>
+            </div>
+            <div class="stationarystar11">
+                <pre>
+                     |
+                    -+-
+                     |
+                </pre>
+            </div>
+            <div class="stationarystar12">
+                <pre>
+                    .
+    
+                    .
+                    .
+                    :
+                    ¦
+                    |
+               - -~<+>~- -
+                    |
+                    ¦
+                    :
+                    .
+                    .
+    
+                    .
+                </pre>
+            </div>
+            <div class="stationarystar13">
+                <pre>
+                    .
+                    |
+                  --+--
+                    |
+                    .
+                </pre>
+            </div>
+            <div class="stationarystar14">
+                <pre>
+                    .
+                    |
+                  --+--
+                    |
+                    .
+                </pre>
+            </div>
+            <div class="stationarystar15">
+                <pre>
+                    .
+                    |
+                  --+--
+                    |
+                    .
+                </pre>
+            </div>
+            <div class="stationarystar16">
+                <pre>
+                    .
+    
+                    .
+                    .
+                    :
+                    ¦
+                    |
+               - -~<+>~- -
+                    |
+                    ¦
+                    :
+                    .
+                    .
+    
+                    .
+                </pre>
+            </div>
+            <div class="stationarystar17">
+                <pre>
+                    .
+                    |
+                  --+--
+                    |
+                    .
+                </pre>
+            </div>
+        </div>
         <div class="screenGrid" style="display: block;"></div>
         <div class="terminal">
             <div id="follow" class="mousefollow">
@@ -101,7 +283,7 @@
                         <button id="copyEmailBtn" class="infobutton">[&#9734]--------[contact]</button>
                         <p id="email" style="display:none;">luzertown@gmail.com</p>
                         <div id="loading">|</div>
-                        <div id="datetime" class="time"></div>
+                        <div id="datetime"></div>
                         <div class="volume" id="volumeControls">
                             <span>volume:</span>
                             <div class="muteButton" data-volume="0">

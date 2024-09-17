@@ -69,6 +69,149 @@ a:visited {
     background: #21d38f;
 }
 
+.star {
+    position: absolute;
+    z-index: -1;
+    font-size: 16px;
+    opacity: 0;
+    color: #21d38f;
+    text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
+    pointer-events: none;
+    transition: opacity 1s ease-in-out;
+}
+
+.star.fade-in {
+    animation: fadeIn 1s forwards;
+}
+
+.star.fade-out {
+    animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.2;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 0.2;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.star.fixed {
+    opacity: 0.2 !important;
+}
+
+.stars * {
+    position: absolute;
+    z-index: -1;
+    font-size: 16px;
+    opacity: 0.6;
+    color: #21d38f;
+    text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
+    pointer-events: none;
+}
+
+.moon {
+    letter-spacing: 1px;
+    margin-top: 100px;
+    margin-left: 900px;
+}
+
+.stationarystar1 {
+    margin-top: 500px;
+    margin-left: 50px;
+}
+
+.stationarystar2 {
+    margin-top: 460px;
+    margin-left: 60px;
+}
+
+.stationarystar3 {
+    margin-top: 100px;
+    margin-left: 1200px;
+}
+
+.stationarystar4 {
+    margin-top: 400px;
+    margin-left: 1300px;
+
+}
+
+.stationarystar5 {
+    margin-top: 700px;
+    margin-left: 900px;
+}
+
+.stationarystar6 {
+    margin-top: 500px;
+    margin-left: 800px;
+}
+
+.stationarystar7 {
+    margin-top: 600px;
+    margin-left: 300px;
+}
+
+.stationarystar8 {
+    margin-top: 260px;
+    margin-left: 730px;
+}
+
+.stationarystar9 {
+    margin-top: 600px;
+    margin-left: 1400px;
+}
+
+.stationarystar10 {
+    margin-top: 360px;
+    margin-left: 1000px;
+}
+
+.stationarystar11 {
+    margin-top: 1000px;
+    margin-left: 500px;
+}
+
+.stationarystar12 {
+    margin-top: 750px;
+    margin-left: 2000px;
+}
+
+.stationarystar13 {
+    margin-top: 300px;
+    margin-left: 1700px;
+}
+
+.stationarystar14 {
+    margin-top: 900px;
+    margin-left: 1600px;
+}
+
+.stationarystar15 {
+    margin-top: 100px;
+    margin-left: 2000px;
+}
+
+.stationarystar16 {
+    margin-top: 900px;
+    margin-left: 100px;
+}
+
+.stationarystar17 {
+    margin-top: 1200px;
+    margin-left: 1100px;
+}
+
 .screenGrid {
     position: absolute;
     height: 100%;

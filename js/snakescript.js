@@ -1,144 +1,146 @@
-// Define the size of each cell in the game grid
-var cellsize = 32;
+(function () {
+    // Define the size of each cell in the game grid
+    var cellsize = 32;
 
-// Calculate the number of rows and columns based on the canvas size and cell size
-var rows = 512 / cellsize;
-var cols = 512 / cellsize;
+    // Calculate the number of rows and columns based on the canvas size and cell size
+    var rows = 512 / cellsize;
+    var cols = 512 / cellsize;
 
-// Declare variables for the game board, drawing context, frame speed, and score
-var board;
-var ctx;
-var framespeed = 10;
-var score = 0;
+    // Declare variables for the game board, drawing context, frame speed, and score
+    var board;
+    var ctx;
+    var framespeed = 10;
+    var score = 0;
 
-// Define the snake object with its initial position, velocity, and initial body cells
-var snake = {
-  x: cellsize,
-  y: cellsize * 7,
-  velx: cellsize,
-  vely: 0,
-  cells: [],
-  setcells: 3,
-};
+    // Define the snake object with its initial position, velocity, and initial body cells
+    var snake = {
+        x: cellsize,
+        y: cellsize * 7,
+        velx: cellsize,
+        vely: 0,
+        cells: [],
+        setcells: 3,
+    };
 
-// Define the food object with its initial position
-var food = {
-  x: 0,
-  y: 0,
-};
+    // Define the food object with its initial position
+    var food = {
+        x: 0,
+        y: 0,
+    };
 
-// Function to initialize the game when the window loads
-window.onload = function() {
-  // Get the game board canvas element and set its dimensions
-  board = document.getElementById("board");
-  board.height = rows * cellsize;
-  board.width = cols * cellsize;
-  
-  // Get the 2D drawing context of the canvas
-  ctx = board.getContext("2d");
+    // Function to initialize the game when the window loads
+    window.addEventListener("load", function () {
+        // Get the game board canvas element and set its dimensions
+        board = document.getElementById("board");
+        board.height = rows * cellsize;
+        board.width = cols * cellsize;
 
-  // Place the initial food on the board
-  placefood();
+        // Get the 2D drawing context of the canvas
+        ctx = board.getContext("2d");
 
-  // Start the game loop with the specified frame speed
-  setInterval(frame, 1000 / framespeed);
-};
+        // Place the initial food on the board
+        placefood();
 
-// Function to update the game state and render the frame
-function frame() {
-  // Clear the entire canvas
-  ctx.clearRect(0, 0, board.width, board.height);
+        // Start the game loop with the specified frame speed
+        setInterval(frame, 1000 / framespeed);
+    });
 
-  // Draw the food on the board
-  ctx.lineWidth = 2;
-  ctx.fillStyle = "#ff748b";
-  ctx.fillRect(food.x + 3, food.y + 3, cellsize - 6, cellsize - 6);
-  ctx.strokeRect(food.x + 2, food.y + 2, cellsize - 4, cellsize - 4);
+    // Function to update the game state and render the frame
+    function frame() {
+        // Clear the entire canvas
+        ctx.clearRect(0, 0, board.width, board.height);
 
-  // Update the snake's position based on its velocity
-  snake.x += snake.velx;
-  snake.y += snake.vely;
+        // Draw the food on the board
+        ctx.lineWidth = 2;
+        ctx.fillStyle = "#ff748b";
+        ctx.fillRect(food.x + 3, food.y + 3, cellsize - 6, cellsize - 6);
+        ctx.strokeRect(food.x + 2, food.y + 2, cellsize - 4, cellsize - 4);
 
-  // Check for collisions with the walls and reset the game if necessary
-  if (snake.x < 0 || snake.x >= board.width || snake.y < 0 || snake.y >= board.height) {
-    reset();
-  }
+        // Update the snake's position based on its velocity
+        snake.x += snake.velx;
+        snake.y += snake.vely;
 
-  // Add the snake's head to the beginning of its cells array
-  snake.cells.unshift({ x: snake.x, y: snake.y });
+        // Check for collisions with the walls and reset the game if necessary
+        if (snake.x < 0 || snake.x >= board.width || snake.y < 0 || snake.y >= board.height) {
+            reset();
+        }
 
-  // Remove the tail cell if the snake's length exceeds the set number of cells
-  if (snake.cells.length > snake.setcells) {
-    snake.cells.pop();
-  }
+        // Add the snake's head to the beginning of its cells array
+        snake.cells.unshift({ x: snake.x, y: snake.y });
 
-  // Draw each cell of the snake's body and check for collisions with food
-  ctx.lineWidth = 2;
-  snake.cells.forEach(function(cell, index) {
-    ctx.strokeRect(cell.x + 2, cell.y + 2, cellsize - 4, cellsize - 4);
-    if (snake.x === food.x && snake.y === food.y) {
-      snake.setcells++;
-      score++;
-      placefood();
-      document.getElementById("score").innerHTML = score;
+        // Remove the tail cell if the snake's length exceeds the set number of cells
+        if (snake.cells.length > snake.setcells) {
+            snake.cells.pop();
+        }
+
+        // Draw each cell of the snake's body and check for collisions with food
+        ctx.lineWidth = 2;
+        snake.cells.forEach(function (cell, index) {
+            ctx.strokeRect(cell.x + 2, cell.y + 2, cellsize - 4, cellsize - 4);
+            if (snake.x === food.x && snake.y === food.y) {
+                snake.setcells++;
+                score++;
+                placefood();
+                document.getElementById("score").innerHTML = score;
+            }
+            // Check for collisions between the snake's head and its body
+            for (var i = index + 1; i < snake.cells.length; i++) {
+                if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
+                    reset();
+                }
+            }
+        });
     }
-    // Check for collisions between the snake's head and its body
-    for (var i = index + 1; i < snake.cells.length; i++) {
-      if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
-        reset();
-      }
+
+    // Event listener for keyboard input to control the snake's movement
+    document.addEventListener("keydown", function (event) {
+        if (event.code === "ArrowUp" && snake.vely === 0) {
+            snake.vely = -cellsize;
+            snake.velx = 0;
+        } else if (event.code === "ArrowDown" && snake.vely === 0) {
+            snake.vely = cellsize;
+            snake.velx = 0;
+        } else if (event.code === "ArrowLeft" && snake.velx === 0) {
+            snake.velx = -cellsize;
+            snake.vely = 0;
+        } else if (event.code === "ArrowRight" && snake.velx === 0) {
+            snake.velx = cellsize;
+            snake.vely = 0;
+        }
+    });
+
+    // Function to reset the game state
+    function reset() {
+        score = 0;
+        document.getElementById("score").innerHTML = score;
+        snake.x = cellsize;
+        snake.y = cellsize * 7;
+        snake.velx = cellsize;
+        snake.vely = 0;
+        snake.cells = [];
+        snake.setcells = 3;
+        placefood();
     }
-  });
-}
 
-// Event listener for keyboard input to control the snake's movement
-document.addEventListener("keydown", function(event) {
-  if (event.code === "ArrowUp" && snake.vely === 0) {
-    snake.vely = -cellsize;
-    snake.velx = 0;
-  } else if (event.code === "ArrowDown" && snake.vely === 0) {
-    snake.vely = cellsize;
-    snake.velx = 0;
-  } else if (event.code === "ArrowLeft" && snake.velx === 0) {
-    snake.velx = -cellsize;
-    snake.vely = 0;
-  } else if (event.code === "ArrowRight" && snake.velx === 0) {
-    snake.velx = cellsize;
-    snake.vely = 0;
-  }
-});
-
-// Function to reset the game state
-function reset() {
-  score = 0;
-  document.getElementById("score").innerHTML = score;
-  snake.x = cellsize;
-  snake.y = cellsize * 7;
-  snake.velx = cellsize;
-  snake.vely = 0;
-  snake.cells = [];
-  snake.setcells = 3;
-  placefood();
-}
-
-// Function to randomly place food on the board
-function placefood() {
-  var validPosition = false;
-  while (!validPosition) {
-    food.x = getRandomInt(0, cols) * cellsize;
-    food.y = getRandomInt(0, rows) * cellsize;
-    validPosition = true;
-    for (var i = 0; i < snake.cells.length; i++) {
-      if (food.x === snake.cells[i].x && food.y === snake.cells[i].y) {
-        validPosition = false;
-        break;
-      }
+    // Function to randomly place food on the board
+    function placefood() {
+        var validPosition = false;
+        while (!validPosition) {
+            food.x = getRandomInt(0, cols) * cellsize;
+            food.y = getRandomInt(0, rows) * cellsize;
+            validPosition = true;
+            for (var i = 0; i < snake.cells.length; i++) {
+                if (food.x === snake.cells[i].x && food.y === snake.cells[i].y) {
+                    validPosition = false;
+                    break;
+                }
+            }
+        }
     }
-  }
-}
 
-// Function to generate a random integer within a specified range
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
-}
+    // Function to generate a random integer within a specified range
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
 
+})();
