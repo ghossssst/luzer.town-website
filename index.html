@@ -202,7 +202,10 @@
                     [root@luzertown ~]$ ./luzer.town
                 </p>
                 <p>
-                    starting "luzer.town" @<a id="ip-address">loading...</a> ---
+                    starting "luzer.town" @<a id="ip-address">loading...</a> 
+                </p>
+                <p>
+                    -
                 </p>
                 <noscript>
                     <p>this won't work without javascript being enabled :/</p>
@@ -211,10 +214,20 @@
                     <p><span class="warning">!WARNING!</span> mobile device detected. please only view page via computer terminal >:(</p>
                 </div>
                 <script>
-                    if (/Mobi/.test(navigator.userAgent)) {
-                        document.getElementById('mobileWarning').style.display = 'block';
-                    }
-                </script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        if (/Mobi/.test(navigator.userAgent)) {
+                            document.getElementById('mobileWarning').style.display = 'block';
+                        }
+                    });
+                </script>                
+            </div>
+            <div class="cat">
+                <pre id="cat">
+/\_/\
+=>,<=
+ / \  
+(| |)_/ 
+                </pre>
             </div>
             <fieldset class="title">
                 <legend>NOW RUNNING</legend>

@@ -451,6 +451,33 @@ function hideLargeImage() {
     });
 
     document.addEventListener("DOMContentLoaded", function () {
+        const frames = [
+            "/\\_/\\  \n=>,<=  \n / \\  \n(| |)_/ ",
+            "/\\_/\\  \n=>,<=  \n / \\  \n(| |)_/ ",
+            "/\\_/\\  \n=>,<=  \n / \\  \n(| |)_/ ",
+            "/\\_/\\  \n=>,<=  \n / \\  \n(| |)_) ",
+            "/\\_/\\  \n=>,<=  \n / \\  \n(| |)_) ",
+            "/\\_/\\  \n=>,<=  \n / \\  \n(| |)_/ ",
+            "/\\_/\\  \n=>,<=  \n / \\  \n(| |)_/ ",
+            "/\\_/\\  \n=-,-=  \n / \\  \n(| |)_/ ",
+            "/\\_/\\  \n=>,<=  \n / \\  \n(| |)_/ ",
+            "/\\_/\\  \n=>,<=  \n / \\  \n(| |)_/ ",
+            "/\\_/\\  \n=>,<=  \n / \\  \n(| |)_/ "
+        ];
+        
+
+        let currentFrame = 0;
+        const asciiArtElement = document.getElementById("cat");
+
+        function animate() {
+            asciiArtElement.textContent = frames[currentFrame];
+            currentFrame = (currentFrame + 1) % frames.length;
+        }
+
+        setInterval(animate, 500);
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
         const visibleFrames = [
             "˵♥ᴗ♥˵",
             "˵♡ᴗ♡˵",

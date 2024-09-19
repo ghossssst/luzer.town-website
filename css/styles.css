@@ -345,6 +345,19 @@ a:visited {
     right: 2px;
 }
 
+.cat {
+    padding: 0px;
+    cursor: default;
+    position: absolute;
+    margin-left: 760px;
+    margin-top: -55px;
+    text-shadow: 1px 0 1px #69bef0, -1px 0 1px #c2fa69;
+    animation-name: crt;
+    animation-duration: 0.05s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
 .web {
     cursor: default;
     position: absolute;
