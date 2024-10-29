@@ -18,6 +18,22 @@ html {
     src: url(../fonts/pixels.woff2);
 }
 
+@font-face {
+    font-family: "vga";
+    src: url(../fonts/perfect_dos_vga_437_win-webfont.woff);
+}
+
+@font-face {
+    font-family: "silkscreen";
+    src: url(../fonts/Silkscreen400.woff2);
+}
+
+@font-face {
+    font-family: "DotGothic";
+    src: url(../fonts/DotGothic16.woff2);
+}
+
+
 p {
     padding: 0px;
     margin: 0px;
