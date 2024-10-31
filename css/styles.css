@@ -685,29 +685,6 @@ a:visited {
     overflow: auto;
 }
 
-.floating-window4 {
-    width: 600px;
-    height: 360px;
-    position: absolute;
-    top: 100px;
-    left: 200px;
-    border: 2px solid var(--black);
-    outline: 2px dashed var(--terminal-green);
-    box-shadow: 0px 0px 20px rgb(33, 211, 143, 0.3), 0px 4px 0px rgba(0, 0, 0, 0.5);
-    background-color: rgb(245, 245, 245, 0.9);
-    z-index: 500;
-    display: none;
-    animation-name: flicker;
-    animation-duration: 0.05s;
-    animation-direction: alternate;
-    animation-iteration-count: infinite;
-}
-
-.floating-window4:hover {
-    z-index: 1000;
-    box-shadow: 0px 0px 30px rgb(33, 211, 143, 0.3), 0px 8px 0px rgba(0, 0, 0, 0.5);
-}
-
 .floating-window5 {
     width: 700px;
     height: 200px;

@@ -1,0 +1,44 @@
+html {
+}
+
+body {
+    margin: 0px;
+    background: linear-gradient(45deg, rgb(228, 137, 225) 25%, rgb(3, 255, 255));
+    background-size: 400% 400%;
+    animation: spacelampanimation 5s linear infinite;
+}
+
+.screenGrid {
+    position: absolute;
+    height: 400%;
+    width: 400%;
+    top: 0px;
+    left: 0px;
+    opacity: 0.1;
+    background-image: url(../img/noise.gif);
+    background-color: rgba(255, 255, 255, 0.7);
+    background-blend-mode: lighten;
+    z-index: -1;
+    pointer-events: none;
+    display: none;
+}
+
+#page {
+    z-index: 10;
+    height: 842px;
+    width: 595px;
+    /* to centre page on screen*/
+    margin: auto;
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+    background-color: white; 
+}
+
+@keyframes spacelampanimation {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}

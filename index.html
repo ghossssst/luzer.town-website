@@ -9,7 +9,7 @@
         <script src="js/script.js"></script>
     </head>
 
-    <body onresize="generateFixedStars()" style="overflow: hidden;">
+    <body onload="onPageLoaded()" onresize="generateFixedStars()" style="overflow: hidden;">
         <div class="stars">
             <div class="moon">
                 <pre>
@@ -289,10 +289,12 @@
                     </fieldset>
                     <fieldset class="info">
                         <legend>info</legend>
-                        <button class="infobutton" id="toggleButton4" id="terminal-button">
-                            <span class="directorylink">[&#9734]--------[portfolio/cv]</span>
-                            <span id="Button4running" class="Button-running">[RUNNING]</span>
-                        </button> 
+                        <a href="../pages/curriculum-vitae.html">
+                            <button class="infobutton" id="terminal-button">
+                                <span class="directorylink">[&#9734]--------[portfolio/cv]</span>
+                                <span id="Button4running" class="Button-running">[RUNNING]</span>
+                            </button> 
+                        </a>
                         <button id="copyEmailBtn" class="infobutton">[&#9734]--------[contact]</button>
                         <p id="email" style="display:none;">luzertown@gmail.com</p>
                         <div id="loading">|</div>
@@ -521,20 +523,6 @@
                             <source src="../vid/snaaail.mp4" type="video/mp4">
                             video no work ;-;
                         </video>
-                    </div>
-                </div>
-                <div id="floatingWindow4" class="floating-window4">
-                    <div class="header" id="header">
-                        <p>portfolio - WIP</p>
-                        <div class="windowoptions">
-                            <div class="back-buttonfill" style="visibility: hidden;">&lt;</div>
-                            <div class="minimalise">_</div>
-                            <div class="close">x</div>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <p>
-                        </p>
                     </div>
                 </div>
                 <div id="floatingWindow5" class="floating-window5">
