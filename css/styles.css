@@ -304,6 +304,7 @@ a:visited {
     margin-top: 0px;
     height: 140px;
     width: 250px;
+    background-color: rgba(0, 0, 0, .7);
     transition: all 0.5s ease;
     box-shadow: 1px 0 1px #2a4b5f, -1px 0 1px #4f662b;
     animation: crtdiv 0.05s alternate infinite;
@@ -313,12 +314,14 @@ a:visited {
     margin-top: 0px;
     height: 140px;
     width: 250px;
+    background-color: rgba(0, 0, 0, .7);
     transition: all 0.5s ease;
     box-shadow: 1px 0 1px #2a4b5f, -1px 0 1px #4f662b;
     animation: crtdiv 0.05s alternate infinite;
 }
 
 .info {
+    background-color: rgba(0, 0, 0, .7);
     transition: all 0.5s ease;
     box-shadow: 1px 0 1px #2a4b5f, -1px 0 1px #4f662b;
     animation: crtdiv 0.05s alternate infinite;
@@ -413,6 +416,17 @@ a:visited {
     animation-iteration-count: infinite;
 }
 
+#batInstruction {
+    text-shadow: 1px 0 1px var(--animation-effect-right), -1px 0 1px var(--animation-effect-left);
+    animation-name: crt;
+    animation-duration: 0.05s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    margin-top: 380px;
+    margin-left: 570px;
+
+}
+
 .directorybutton {
     cursor: pointer;
     padding: 0px;
@@ -421,7 +435,7 @@ a:visited {
     padding-left: 2px;
     width: 250px;
     height: 25px;
-    background-color: var(--black);
+    background-color: rgba(255, 255, 255, 0);
     color: var(--terminal-green);
     display: flex;
     align-items: center;
@@ -443,7 +457,7 @@ a:visited {
     padding-left: 2px;
     width: 200px;
     height: 25px;
-    background-color: var(--black);
+    background-color: rgba(255, 255, 255, 0);
     color: var(--terminal-green);
     display: flex;
     align-items: center;

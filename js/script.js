@@ -29,7 +29,7 @@ function hideLargeImage() {
                 console.error("Error fetching IP address:", error);
             });
     });
-
+    
     (function () {
         const starPositions = [
             // Andromeda
@@ -541,6 +541,7 @@ function hideLargeImage() {
         const batPre = document.getElementById("bat-pre");
         const batidlesound = document.getElementById("batidle-sound");
         const battakeoffsound = document.getElementById("battakeoff-sound");
+        const batInstruction = document.getElementById("batInstruction");
 
         batidlesound.volume = 0.1;
         battakeoffsound.volume = 0.1;
@@ -554,6 +555,7 @@ function hideLargeImage() {
             `;
 
         batContainer.addEventListener("mouseover", function () {
+            batInstruction.style.display = "block";
             batPre.textContent = newContent;
             batidlesound.currentTime = 0;
             batidlesound.play();
@@ -561,6 +563,7 @@ function hideLargeImage() {
 
         batContainer.addEventListener("mouseout", function () {
             batPre.textContent = originalContent;
+            batInstruction.style.display = "none";
         });
 
         batContainer.addEventListener("mousedown", function () {
