@@ -32,22 +32,17 @@ function hideLargeImage() {
     
     (function () {
         const starPositions = [
-            // Andromeda
-            { x: 1100, y: 620 },
-            { x: 1215, y: 535 },
-            { x: 1375, y: 500 },
-            { x: 1400, y: 640 },
             // Apus
             { x: 200, y: 700 },
             { x: 250, y: 735 },
             { x: 220, y: 750 },
             { x: 440, y: 770 },
             // Are
-            { x: 875, y: 200 },
+            { x: 1015, y: 340 },
             { x: 1000, y: 190 },
-            { x: 1085, y: 250 },
-            { x: 1075, y: 320 },
-            { x: 1100, y: 390 },
+            { x: 1090, y: 250 },
+            { x: 1085, y: 330 },
+            { x: 1105, y: 405 },
             { x: 1000, y: 430 },
             { x: 1015, y: 320 },
             // Aries
@@ -142,8 +137,7 @@ function hideLargeImage() {
 
         window.onload = () => {
             generateFixedStars();
-            generateRandomFixedStars();
-            startStarsGeneration();
+
         };
     })();
 
@@ -709,6 +703,24 @@ function hideLargeImage() {
             document.execCommand("copy");
             document.body.removeChild(tempInput);
             button.innerHTML = "[&#9734]--------[copied!]";
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const toggleButton = document.getElementById('AnimationButton');
+        const body = document.body;
+
+        // Initialize state
+        let isAnimationEnabled = false;
+
+        toggleButton.addEventListener('click', () => {
+            isAnimationEnabled = !isAnimationEnabled;
+
+            if (isAnimationEnabled) {
+            body.classList.add('animated');
+            } else {
+            body.classList.remove('animated');
+            }
         });
     });
 })();
