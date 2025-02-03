@@ -137,7 +137,8 @@ function hideLargeImage() {
 
         window.onload = () => {
             generateFixedStars();
-
+            generateRandomStars();
+            generateRandomFixedStars();
         };
     })();
 
@@ -445,12 +446,21 @@ function hideLargeImage() {
     });
 
     document.addEventListener("DOMContentLoaded", function () {
+        const catContainer = document.getElementById("catContainer");
+        const catPre = document.getElementById("cat");
+        const allAudioElements = document.querySelectorAll("audio");
+        
+        const catSounds = Array.from(allAudioElements).filter(audio => audio.id.includes("Cat"));
+        const idleCatFrame = "/\\_/\\  \n=>,<=  \n / \\  \n(| |)_) ";
+        
+        let animationInterval;
+        let currentFrame = 0;
         const frames = [
             "/\\_/\\  \n=>,<=  \n / \\  \n(| |)_/ ",
             "/\\_/\\  \n=>,<=  \n / \\  \n(| |)_/ ",
             "/\\_/\\  \n=>,<=  \n / \\  \n(| |)_/ ",
-            "/\\_/\\  \n=>,<=  \n / \\  \n(| |)_) ",
-            "/\\_/\\  \n=>,<=  \n / \\  \n(| |)_) ",
+            "/\\_/\\  \n=>,<=  \n / \\  \n(| |)_/ ",
+            "/\\_/\\  \n=>,<=  \n / \\  \n(| |)_/ ",
             "/\\_/\\  \n=>,<=  \n / \\  \n(| |)_/ ",
             "/\\_/\\  \n=>,<=  \n / \\  \n(| |)_/ ",
             "/\\_/\\  \n=-,-=  \n / \\  \n(| |)_/ ",
@@ -459,17 +469,41 @@ function hideLargeImage() {
             "/\\_/\\  \n=>,<=  \n / \\  \n(| |)_/ "
         ];
         
-
-        let currentFrame = 0;
-        const asciiArtElement = document.getElementById("cat");
-
         function animate() {
-            asciiArtElement.textContent = frames[currentFrame];
+            catPre.textContent = frames[currentFrame];
             currentFrame = (currentFrame + 1) % frames.length;
         }
-
-        setInterval(animate, 500);
+        
+        function playRandomCatSound() {
+            if (catSounds.length === 0) return;
+            const randomIndex = Math.floor(Math.random() * catSounds.length);
+            const randomAudio = catSounds[randomIndex];
+            randomAudio.currentTime = 0;
+            randomAudio.play();
+        }
+        
+        function stopAnimation() {
+            clearInterval(animationInterval);
+        }
+        
+        function startAnimation() {
+            stopAnimation(); // Ensure no duplicate intervals
+            animationInterval = setInterval(animate, 500);
+        }
+        
+        catContainer.addEventListener("mouseenter", function () {
+            playRandomCatSound();
+            catPre.textContent = idleCatFrame;
+            stopAnimation();
+        });
+        
+        catContainer.addEventListener("mouseleave", function () {
+            startAnimation();
+        });
+        
+        startAnimation(); // Initialize animation on page load
     });
+    
 
     document.addEventListener("DOMContentLoaded", function () {
         const visibleFrames = [
