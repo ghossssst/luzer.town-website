@@ -8,6 +8,11 @@
 }
 
 html {
+    cursor: url('../img/cursor/cursor.cur'), auto;
+}
+
+
+html {
     color: var(--terminal-green);
     background-color: var(--black);
     font-family: 'Courier New', Courier, monospace;
@@ -33,6 +38,13 @@ html {
     src: url(../fonts/DotGothic16.woff2);
 }
 
+div:hover {
+    cursor: url('../img/cursor/cursor.cur'), auto;
+}
+
+span:hover {
+    cursor: url('../img/cursor/cursor.cur'), auto;
+}
 
 p {
     padding: 0px;
@@ -56,6 +68,7 @@ span {
 }
 
 button {
+    cursor: url('../img/cursor/cursor.cur'), auto;
     color: inherit;
 	border: none;
     background: none;
@@ -63,9 +76,18 @@ button {
     margin: 0px;
 }
 
+button:hover {
+    cursor: url('../img/cursor/cursor.cur'), auto;
+}
+
 a:link {
+    cursor: url('../img/cursor/cursor.cur'), auto;
     color: var(--black);
     text-decoration: none;
+}
+
+a:hover {
+    cursor: url('../img/cursor/cursor.cur'), auto;
 }
 
 a:visited {
@@ -90,6 +112,12 @@ a:visited {
 }
 
 ::-webkit-scrollbar-thumb:hover {
+    cursor: url('../img/cursor/cursorRetroHover.cur'), auto;
+    background: var(--terminal-green);
+}
+
+::-webkit-scrollbar-thumb:active {
+    cursor: url('../img/cursor/cursorRetroHoverActive.cur'), auto;
     background: var(--terminal-green);
 }
 
@@ -621,6 +649,7 @@ a:visited {
 }
 
 .volume {
+    cursor: url('../img/cursor/cursorFull.cur'), auto;
     margin-top: 18px;
     position: relative;
     bottom: 0px;
@@ -635,12 +664,10 @@ a:visited {
 .muteButton {
     width: 7px;
     border: none;
-    cursor: pointer;
 }
 
 .volumeLevel {
     width: 7px;
-    cursor: pointer;
     border: none;
     background-color: var(--terminal-green);
     transition: all 0.5s ease;
@@ -660,7 +687,6 @@ a:visited {
 
 .cat {
     padding: 0px;
-    cursor: default;
     position: absolute;
     margin-left: 760px;
     margin-top: -55px;
@@ -668,14 +694,12 @@ a:visited {
 }
 
 .web {
-    cursor: default;
     position: absolute;
     margin-top: 340px;
     text-shadow: 1px 0 1px var(--animation-effect-right), -1px 0 1px var(--animation-effect-left);
 }
 
 .spider {
-    cursor: default;
     position: absolute;
     margin-left: 740px;
     margin-top: 340px;
@@ -684,11 +708,14 @@ a:visited {
 
 .bat {
     z-index: 3;
-    cursor: default;
     position: absolute;
     margin-left: 500px;
     margin-top: 340px;
     text-shadow: 1px 0 1px var(--animation-effect-right), -1px 0 1px var(--animation-effect-left);
+}
+
+.bat:hover {
+    cursor: url('../img/cursor/cursorFull.cur'), auto;
 }
 
 #batInstruction {
@@ -699,7 +726,6 @@ a:visited {
 }
 
 .directorybutton {
-    cursor: pointer;
     padding: 0px;
     margin: 0px;
     padding-bottom: 4px;
@@ -716,8 +742,11 @@ a:visited {
     text-shadow: 1px 0 1px var(--animation-effect-right), -1px 0 1px var(--animation-effect-left);
 }
 
+.directorylink:hover {
+    cursor: url('../img/cursor/cursorFull.cur'), auto;
+}
+
 .infobutton {
-    cursor: pointer;
     padding: 0px;
     margin: 0px;
     padding-bottom: 4px;
@@ -736,20 +765,24 @@ a:visited {
 
 
 .directorybutton:hover {
+    cursor: url('../img/cursor/cursorFull.cur'), auto;
     color: rgb(0, 0, 0);
     background-color: var(--terminal-green);
 }
 
 .infobutton:hover {
+    cursor: url('../img/cursor/cursorFull.cur'), auto;
     color: rgb(0, 0, 0);
     background-color: var(--terminal-green);
 }
 
 .headertext {
-    margin-bottom: 10px;
+    cursor: url('../img/cursor/cursorRetro.cur'), auto;
+    padding-bottom: 10px;
 }
 
 .subtext {
+    cursor: url('../img/cursor/cursorRetro.cur'), auto;
     font-size: 12px;
 }
 
@@ -765,6 +798,18 @@ a:visited {
     padding-top: 0px;
 }
 
+.retroImage {
+    cursor: url('../img/cursor/cursorRetroHover.cur'), auto;
+}
+
+.retroImage:hover {
+    cursor: url('../img/cursor/cursorRetroHover.cur'), auto;
+}
+
+.retroImage:active {
+    cursor: url('../img/cursor/cursorRetroHoverActive.cur'), auto;
+}
+
 .image-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -772,10 +817,13 @@ a:visited {
     width: 100%;
 }
 
+.image-grid:hover {
+    cursor: url('../img/cursor/cursorRetro.cur'), auto;
+}
+
 .image-grid img {
     width: 100%;
     height: auto;
-    cursor: pointer;
 }
 
 .overlay {
@@ -790,6 +838,10 @@ a:visited {
     text-align: center;
 }
 
+.overlay:hover {
+    cursor: url('../img/cursor/cursorRetro.cur'), auto;
+}
+
 .overlay img {
     max-width: 90%;
     max-height: 96%;
@@ -798,6 +850,7 @@ a:visited {
 }
 
 .internalwindowbutton {
+    cursor: url('../img/cursor/cursorRetro.cur'), auto;
     padding-left: 5px;
     display: flex;
     align-items: center;
@@ -814,13 +867,19 @@ a:visited {
 }
 
 .internalwindowbutton:hover {
+    cursor: url('../img/cursor/cursorRetroHover.cur'), auto;
     color: white;
     background-color: var(--red);
     transform: translateY(4px);
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
 }
 
+.internalwindowbutton:active {
+    cursor: url('../img/cursor/cursorRetroHoverActive.cur'), auto;
+}
+
 .internalwindowbuttonPersonal {
+    cursor: url('../img/cursor/cursorRetro.cur'), auto;
     padding-left: 5px;
     display: flex;
     align-items: center;
@@ -837,10 +896,44 @@ a:visited {
 }
 
 .internalwindowbuttonPersonal:hover {
+    cursor: url('../img/cursor/cursorRetroHover.cur'), auto;
     color: var(--white);
     background-color: var(--red);
     transform: translateY(4px);
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+
+.internalwindowbuttonPersonal:active {
+    cursor: url('../img/cursor/cursorRetroHoverActive.cur'), auto;
+}
+
+.retroLink:link {
+    text-decoration: underline;
+}
+
+.retroLink:hover {
+    cursor: url('../img/cursor/cursorRetroHover.cur'), auto;
+}
+
+.retroLink:active {
+    cursor: url('../img/cursor/cursorRetroHoverActive.cur'), auto;
+}
+
+.retroMediaHover {
+    box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.5);
+    transition: all 0.2s
+}
+
+.retroMediaHover:hover {
+    cursor: url('../img/cursor/cursorRetroHover.cur'), auto;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+    transform: translateY(4px);
+}
+
+.retroMediaHover:active {
+    cursor: url('../img/cursor/cursorRetroHoverActive.cur'), auto;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
+    transform: translateY(4px);
 }
 
 .windowbutton {
@@ -877,11 +970,17 @@ a:visited {
 }
 
 .floating-windows {
+    cursor: url('../img/cursor/cursorRetro.cur'), auto;
     color: #1f1f1f;
     font-family: "pixels";
 }
 
+.floating-windows:hover {
+    cursor: url('../img/cursor/cursorRetro.cur'), auto;
+}
+
 .floating-window1 {
+    cursor: url('../img/cursor/cursorRetro.cur'), auto;
     width: 535px;
     height: 590px;
     position: absolute;
@@ -900,6 +999,7 @@ a:visited {
 }
 
 .floating-window1:hover {
+    cursor: url('../img/cursor/cursorRetro.cur'), auto;
     z-index: 1000;
     box-shadow: 0px 0px 30px rgb(33, 211, 143, 0.3), 0px 8px 0px rgba(0, 0, 0, 0.5);
 }
@@ -931,6 +1031,14 @@ a:visited {
     padding: 10px;
     height: calc(100% - 70px);
     overflow: auto;
+}
+
+.divboard:hover {
+    cursor: url('../img/cursor/cursorRetro.cur'), auto;
+}
+
+.snakeScore:hover {
+    cursor: url('../img/cursor/cursorRetro.cur'), auto;
 }
 
 .floating-window3 {
@@ -1025,6 +1133,10 @@ a:visited {
     display: none;
 }
 
+.Button-running:hover {
+    cursor: url('../img/cursor/cursorFull.cur'), auto;
+}
+
 .header {
     font-family: "pixels";
     display: flex;
@@ -1032,6 +1144,14 @@ a:visited {
     background-color: var(--white);
     border-bottom: 2px solid var(--black);
     cursor: move;
+}
+
+.header:hover {
+    cursor: url('../img/cursor/cursorRetroMoveHover.cur'), auto;
+}
+
+.header:active {
+    cursor: url('../img/cursor/cursorRetroMove.cur'), auto;
 }
 
 .windowoptions {
@@ -1047,6 +1167,10 @@ a:visited {
     text-align: center;
 }
 
+.windowoptions:hover {
+    cursor: url('../img/cursor/cursorRetroHover.cur'), auto;
+}
+
 .back-button {
     line-height: 19px;
     width: 17px;
@@ -1055,12 +1179,16 @@ a:visited {
     box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
     transition: all 0.05s ease;
     border: 2px solid var(--black);
-    cursor: pointer;
 }
 
 .back-button:hover {
+    cursor: url('../img/cursor/cursorRetroHover.cur'), auto;
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
     transform: translateY(2px);
+}
+
+.back-button:active {
+    cursor: url('../img/cursor/cursorRetroHoverActive.cur'), auto;
 }
 
 .minimalise {
@@ -1070,12 +1198,16 @@ a:visited {
     box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
     transition: all 0.05s ease;
     border: 2px solid var(--black);
-    cursor: pointer;
 }
 
 .minimalise:hover {
+    cursor: url('../img/cursor/cursorRetroHover.cur'), auto;
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
     transform: translateY(2px);
+}
+
+.minimalise:active {
+    cursor: url('../img/cursor/cursorRetroHoverActive.cur'), auto;
 }
 
 .close {
@@ -1085,16 +1217,25 @@ a:visited {
     box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.5);
     transition: all 0.05s ease;
     border: 2px solid var(--black);
-    cursor: pointer;
 }
 
 .close:hover {
+    cursor: url('../img/cursor/cursorRetroHover.cur'), auto;
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5);
     transform: translateY(2px);
 }
 
+.close:active {
+    cursor: url('../img/cursor/cursorRetroHoverActive.cur'), auto;
+}
+
 .content {
+    cursor: url('../img/cursor/cursorRetro.cur'), auto;
     padding: 10px;
+}
+
+.content:hover {
+    cursor: url('../img/cursor/cursorRetro.cur'), auto;
 }
 
 .ve-00 {
