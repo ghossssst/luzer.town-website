@@ -770,10 +770,26 @@ a:visited {
     background-color: var(--terminal-green);
 }
 
+.directorybutton:hover .directorylink::before {
+    content: "[★]"; /* Solid star */
+}
+
+.directorylink::before {
+    content: "[☆]"; /* Default outlined star */
+}
+
 .infobutton:hover {
     cursor: url('../img/cursor/cursorFull.cur'), auto;
     color: rgb(0, 0, 0);
     background-color: var(--terminal-green);
+}
+
+.infobutton:hover::before {
+    content: "[★]"; /* Solid star on hover */
+}
+
+.infobutton::before {
+    content: "[☆]"; /* Default outlined star */
 }
 
 .headertext {

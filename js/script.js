@@ -736,7 +736,7 @@ function hideLargeImage() {
             tempInput.select();
             document.execCommand("copy");
             document.body.removeChild(tempInput);
-            button.innerHTML = "[&#9734]--------[copied!]";
+            button.innerHTML = "--------[copied!]";
         });
     });
 
