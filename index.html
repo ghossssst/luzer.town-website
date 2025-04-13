@@ -196,9 +196,11 @@
         <div class="Constelations">
             <div class="ApusContainer">
                 <div class="Apus">
-                    <div class="ApusLine1"></div>
-                    <div class="ApusLine2"></div>
-                    <div class="ApusLine3"></div>
+                    <div class="ApusLine">
+                        <div class="ApusLine1"></div>
+                        <div class="ApusLine2"></div>
+                        <div class="ApusLine3"></div>
+                    </div>
                     <div class="ApusStar1">✦</div>
                     <div class="ApusStar2">✦</div>
                     <div class="ApusStar3">✦</div>
@@ -211,12 +213,14 @@
             </div>
             <div class="AraContainer">
                 <div class="Ara">
-                    <div class="AraLine1"></div>
-                    <div class="AraLine2"></div>
-                    <div class="AraLine3"></div>
-                    <div class="AraLine4"></div>
-                    <div class="AraLine5"></div>
-                    <div class="AraLine6"></div>
+                    <div class="AraLine">
+                        <div class="AraLine1"></div>
+                        <div class="AraLine2"></div>
+                        <div class="AraLine3"></div>
+                        <div class="AraLine4"></div>
+                        <div class="AraLine5"></div>
+                        <div class="AraLine6"></div>
+                    </div>
                     <div class="AraStar1">✦</div>
                     <div class="AraStar2">✦</div>
                     <div class="AraStar3">✦</div>
@@ -232,9 +236,11 @@
             </div>
             <div class="AriesContainer">
                 <div class="Aries">
-                    <div class="AriesLine1"></div>
-                    <div class="AriesLine2"></div>
-                    <div class="AriesLine3"></div>
+                    <div class="AriesLine">
+                        <div class="AriesLine1"></div>
+                        <div class="AriesLine2"></div>
+                        <div class="AriesLine3"></div>
+                    </div>
                     <div class="AriesStar1">✦</div>
                     <div class="AriesStar2">✦</div>
                     <div class="AriesStar3">✦</div>
@@ -294,31 +300,31 @@
                     ╚══════╝░╚═════╝░╚══════╝╚══════╝╚═╝░░╚═╝╚═╝░░░╚═╝░░░░╚════╝░░░░╚═╝░░░╚═╝░░╚═╝░░╚══╝<br>
                     BY - ME (duh!)--------------------------------------------------------------------<3<br>
                 </p>
-                <div class="menu">
-                    <fieldset class="internal-directory">
+                <div class="directories">
+                    <fieldset class="directoryFieldset">
                         <legend>internal directory</legend>
                         <button class="directorybutton" id="toggleButton1">
-                            <span class="directorylink">--------[snake]</span>
-                            <span id="Button1running" class="Button-running">[RUNNING]</span>
+                            <p class="directorylink">--------[snake]</p>
+                            <p id="Button1running" class="Button-running">[RUNNING]</p>
                         </button> 
-                        <button class="directorybutton" id="toggleButton2" id="terminal-button">
-                            <span class="directorylink">--------[art]</span>
-                            <span id="Button2running" class="Button-running">[RUNNING]</span>
+                        <button class="directorybutton" id="toggleButton2">
+                            <p class="directorylink">--------[art]</p>
+                            <p id="Button2running" class="Button-running">[RUNNING]</p>
                         </button> 
-                        <button class="directorybutton" id="toggleButton3" id="terminal-button">
-                            <span class="directorylink">--------[projects]</span>
-                            <span id="Button3running" class="Button-running">[RUNNING]</span>
+                        <button class="directorybutton" id="toggleButton3">
+                            <p class="directorylink">--------[projects]</p>
+                            <p id="Button3running" class="Button-running">[RUNNING]</p>
                         </button> 
-                        <button class="directorybutton" id="toggleButton6" id="terminal-button">
-                            <span class="directorylink">--------[personal]</span>
-                            <span id="Button6running" class="Button-running">[RUNNING]</span>
+                        <button class="directorybutton" id="toggleButton4">
+                            <p class="directorylink">--------[personal]</p>
+                            <p id="Button6running" class="Button-running">[RUNNING]</p>
                         </button> 
-                        <button class="directorybutton" id="toggleButton5" id="terminal-button">
-                            <span class="directorylink">--------[obituary]</span>
-                            <span id="Button5running" class="Button-running">[RUNNING]</span>
+                        <button class="directorybutton" id="toggleButton5">
+                            <p class="directorylink">--------[obituary]</p>
+                            <p id="Button5running" class="Button-running">[RUNNING]</p>
                         </button> 
                     </fieldset>
-                    <fieldset class="external-directory" id="terminal-button">
+                    <fieldset class="directoryFieldset">
                         <legend>external directory</legend>
                         <a href="https://www.instagram.com/lukezdesign/" target="_blank">
                             <button class="directorybutton">
@@ -341,15 +347,16 @@
                             </button>    
                         </a>    
                     </fieldset>
-                    <fieldset class="info">
+                    <fieldset class="directoryFieldset">
                         <legend>info</legend>
                         <a href="../pages/curriculum-vitae.html">
-                            <button class="infobutton" id="terminal-button">
-                                <span>--------[portfolio/cv]</span>
-                                <span id="Button4running" class="Button-running">[RUNNING]</span>
+                            <button class="directorybutton" style="width: 200px;">
+                                <p class="directorylink">--------[portfolio/cv]</p>
                             </button> 
                         </a>
-                        <button id="copyEmailBtn" class="infobutton">--------[contact]</button>
+                        <button id="copyEmailBtn" class="directorybutton" style="width: 200px;">
+                            <p class="directorylink">--------[contact]</p>
+                        </button>
                         <p id="email" style="display:none;">luzertown@gmail.com</p>
                         <div id="loading">|</div>
                         <div id="datetime"></div>
@@ -437,7 +444,7 @@
                 <p>click!</p>
             </div>
             <div class="floating-windows">
-                <div id="floatingWindow1" class="floating-window1">
+                <div id="floatingWindow1">
                     <div class="header" id="header">
                         <p>snake</p>
                         <div class="windowoptions">
@@ -459,7 +466,7 @@
                         <script src="../js/snakescript.js"></script>
                     </div>
                 </div>
-                <div id="floatingWindow2" class="floating-window2">
+                <div id="floatingWindow2">
                     <div class="header" id="header">
                         <p>art - WIP</p>
                         <div class="windowoptions">
@@ -519,7 +526,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="floatingWindow3" class="floating-window3">
+                <div id="floatingWindow3">
                     <div class="header">
                         <p>projects - WIP</p>
                         <div class="headercontrols">
@@ -580,22 +587,7 @@
                         </video>
                     </div>
                 </div>
-                <div id="floatingWindow5" class="floating-window5">
-                    <div class="header" id="header">
-                        <p>obituary</p>
-                        <div class="windowoptions">
-                            <div class="back-buttonfill" style="visibility: hidden;">&lt;</div>
-                            <div class="minimalise">_</div>
-                            <div class="close">x</div>
-                        </div>
-                    </div>
-                    <div class="content">
-                        <div class="obituary">
-                            <p>when i die, i'll update this page (i won't. i'll be dead (i might even be dead right now for all you know.).).</p>
-                        </div>
-                    </div>
-                </div>
-                <div id="floatingWindow6" class="floating-window6">
+                <div id="floatingWindow4">
                     <div class="header" id="header">
                         <p>personal intrests - WIP</p>
                         <div class="windowoptions">
@@ -604,7 +596,7 @@
                             <div class="close">x</div>
                         </div>
                     </div>
-                    <div class="content" id="content6">
+                    <div class="content" id="content4">
                         <div style="width: 150px;">  
                             <a href="#" class="internalNavLink">
                                 <div class="internalwindowbuttonPersonal">computers</div>
@@ -670,7 +662,7 @@
     
                         <div style="width: 150px;">  
                             <a href="#" class="internalNavLink">
-                                <div class="internalwindowbuttonPersonal" style="margin-top: 10px;">books</div>
+                                <div class="internalwindowbuttonPersonal" style="margin-top: 10px;">writings</div>
                             </a>
                         </div>
                         <p class="subtext">
@@ -685,6 +677,21 @@
                         <p class="subtext">
                             > i've forgotten the feeling of grass under my feet
                         </p>
+                    </div>
+                </div>
+                <div id="floatingWindow5">
+                    <div class="header" id="header">
+                        <p>obituary</p>
+                        <div class="windowoptions">
+                            <div class="back-buttonfill" style="visibility: hidden;">&lt;</div>
+                            <div class="minimalise">_</div>
+                            <div class="close">x</div>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="obituary">
+                            <p>when i die, i'll update this page (i won't. i'll be dead (i might even be dead right now for all you know.).).</p>
+                        </div>
                     </div>
                 </div>
             </div>

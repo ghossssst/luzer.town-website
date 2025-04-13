@@ -148,9 +148,8 @@ function hideLargeImage() {
             { buttonId: "toggleButton1", windowId: "floatingWindow1", runningId: "Button1running" },
             { buttonId: "toggleButton2", windowId: "floatingWindow2", runningId: "Button2running" },
             { buttonId: "toggleButton3", windowId: "floatingWindow3", runningId: "Button3running", contentId: "content3" },
-            { buttonId: "toggleButton4", windowId: "floatingWindow4", runningId: "Button4running" },
-            { buttonId: "toggleButton5", windowId: "floatingWindow5", runningId: "Button5running" },
-            { buttonId: "toggleButton6", windowId: "floatingWindow6", runningId: "Button6running", contentId: "content6" }
+            { buttonId: "toggleButton4", windowId: "floatingWindow4", runningId: "Button4running", contentId: "content4" },
+            { buttonId: "toggleButton5", windowId: "floatingWindow5", runningId: "Button5running" }
         ];
 
         let highestZIndex = 1000;
