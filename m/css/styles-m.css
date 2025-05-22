@@ -1,0 +1,96 @@
+:root {
+    --01: #d4c09c;
+    --02: #ae9e83;
+    --03: #877a63;
+    --04: #716750;
+    --05: #4e4838;
+    --06: #2d2622;
+    --07: #ad9d76;
+    --08: #72654c;
+}
+
+html {
+    background-color: var(--07);
+    font-size: 7.2vw;
+    line-height: 0.88em;
+    font-family: pixels3x3, 'Courier New', Courier, monospace;
+}
+
+@font-face {font-family: "pixels3x3"; src: url(../fonts/3x3_font_for_nerds.ttf)}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.screenGrid {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    opacity: 0.06;
+    background-image: url(../img/noise.gif);
+    background-color: rgba(255, 255, 255, 0.6);
+    background-blend-mode: lighten;
+    z-index: 10;
+    pointer-events: none;
+    display: none;
+}
+
+.topBar {
+    display: flex;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: var(--07);
+    padding-top: 1.8vw;
+    width: 100%;
+    height: 7.2vw;
+    background-color: var(--05);
+}
+
+.topBar > div {
+    flex: 1;
+    text-align: center;
+}
+
+.topBar > div:first-child {
+    padding-left: 1.8vw;
+    text-align: left;
+}
+
+.topBar > div:last-child {
+    padding-right: 1.8vw;
+    text-align: right;
+}
+
+.navbar {
+    background-color: var(--05);
+    position:absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center; /* horizontal center */
+    width: 100%;             /* optional, depending on layout */
+}
+
+.iconContainer {
+    position: absolute;
+    display: flex;
+    justify-content: center; /* horizontal center */
+    width: 100%;             /* optional, depending on layout */
+}
+
+.icons {
+    margin: 3.6vw;
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3.6vw;
+}
+
+.icon {
+    width: 28.8vw;
+}
