@@ -46,13 +46,14 @@ html {
     right: 0;
     text-align: center;
     color: var(--07);
-    padding-top: 1.8vw;
     width: 100%;
-    height: 7.2vw;
+    height: 9vw;
     background-color: var(--05);
+    box-shadow: 0vw -1vw 2vw 1vw var(--05);
 }
 
 .topBar > div {
+    margin-top: 2.8vw;
     flex: 1;
     text-align: center;
 }
@@ -72,15 +73,16 @@ html {
     position:absolute;
     bottom: 0;
     display: flex;
-    justify-content: center; /* horizontal center */
-    width: 100%;             /* optional, depending on layout */
+    justify-content: center; 
+    width: 100%;             
+    box-shadow: 0vw 1vw 2vw 1vw var(--05);
 }
 
 .iconContainer {
     position: absolute;
     display: flex;
-    justify-content: center; /* horizontal center */
-    width: 100%;             /* optional, depending on layout */
+    justify-content: center; 
+    width: 100%;             
 }
 
 .icons {
@@ -93,4 +95,10 @@ html {
 
 .icon {
     width: 28.8vw;
+    -webkit-filter: drop-shadow(0vw 0vw 2vw var(--04));
+    filter: drop-shadow(0vw 0vw 2vw var(--04));
+}
+
+.board{
+    background-color: #2d2622;
 }
