@@ -1,27 +1,27 @@
 (function () {
     // Touch button controls
-    document.getElementById("btn-up").addEventListener("click", function () {
+    document.getElementById("btnUp").addEventListener("click", function () {
         if (snake.vely === 0) {
             snake.vely = -cellsize;
             snake.velx = 0;
         }
     });
 
-    document.getElementById("btn-down").addEventListener("click", function () {
+    document.getElementById("btnDown").addEventListener("click", function () {
         if (snake.vely === 0) {
             snake.vely = cellsize;
             snake.velx = 0;
         }
     });
 
-    document.getElementById("btn-left").addEventListener("click", function () {
+    document.getElementById("btnLeft").addEventListener("click", function () {
         if (snake.velx === 0) {
             snake.velx = -cellsize;
             snake.vely = 0;
         }
     });
 
-    document.getElementById("btn-right").addEventListener("click", function () {
+    document.getElementById("btnRight").addEventListener("click", function () {
         if (snake.velx === 0) {
             snake.velx = cellsize;
             snake.vely = 0;
