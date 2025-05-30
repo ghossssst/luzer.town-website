@@ -1,26 +1,49 @@
 (function () {
+    // Touch button controls
+    document.getElementById("btn-up").addEventListener("click", function () {
+        if (snake.vely === 0) {
+            snake.vely = -cellsize;
+            snake.velx = 0;
+        }
+    });
+
+    document.getElementById("btn-down").addEventListener("click", function () {
+        if (snake.vely === 0) {
+            snake.vely = cellsize;
+            snake.velx = 0;
+        }
+    });
+
+    document.getElementById("btn-left").addEventListener("click", function () {
+        if (snake.velx === 0) {
+            snake.velx = -cellsize;
+            snake.vely = 0;
+        }
+    });
+
+    document.getElementById("btn-right").addEventListener("click", function () {
+        if (snake.velx === 0) {
+            snake.velx = cellsize;
+            snake.vely = 0;
+        }
+    });
 
     function vw(percent) {
-    var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-    let width = Number ((percent * w) / 100)
-    console.log(width);
-    return width;
+        var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        return (percent * w) / 100;
     }
 
     // Define the size of each cell in the game grid
-    var cellsize = vw(2);
+    var cellsize = Math.floor(vw(2));
 
-    // Calculate the number of rows and columns based on the canvas size and cell size
-    var rows = vw(80) / cellsize;
-    var cols = vw(80) / cellsize;
+    // Calculate rows and cols based on 80vw canvas area
+    var rows = Math.floor(vw(80) / cellsize);
+    var cols = Math.floor(vw(80) / cellsize);
 
-    // Declare variables for the game board, drawing context, frame speed, and score
-    var board;
-    var ctx;
+    var board, ctx;
     var framespeed = 10;
     var score = 0;
 
-    // Define the snake object with its initial position, velocity, and initial body cells
     var snake = {
         x: 0,
         y: 0,
@@ -30,68 +53,67 @@
         setcells: 6,
     };
 
-    // Define the food object with its initial position
     var food = {
         x: 0,
         y: 0,
     };
 
-    // Function to initialize the game when the window loads
     window.addEventListener("load", function () {
-        // Get the game board canvas element and set its dimensions
         board = document.getElementById("board");
         board.height = rows * cellsize;
         board.width = cols * cellsize;
 
-        // Get the 2D drawing context of the canvas
         ctx = board.getContext("2d");
 
-        // Place the initial food on the board
-        placefood();
+        // Initialize snake at center
+        snake.x = 0;
+        snake.y = Math.floor((rows / 2)) * cellsize;
 
-        // Start the game loop with the specified frame speed
-        setInterval(frame, 1000 / framespeed);
+        placefood();
+        setInterval(frame, 1500 / framespeed);
     });
 
-    // Function to update the game state and render the frame
     function frame() {
-        // Clear the entire canvas
         ctx.clearRect(0, 0, board.width, board.height);
 
-        // Draw the food on the board
-        ctx.lineWidth = vw(0);
-        ctx.fillStyle = "#ff748b";
+        // Draw food
+        ctx.fillStyle = "#ae9e83";
+        ctx.strokeStyle = "#716750";
+        ctx.lineWidth = 1;
         ctx.fillRect(food.x, food.y, cellsize, cellsize);
         ctx.strokeRect(food.x, food.y, cellsize, cellsize);
 
-        // Update the snake's position based on its velocity
+        // Update snake position
         snake.x += snake.velx;
         snake.y += snake.vely;
 
-        // Check for collisions with the walls and reset the game if necessary
+        // Collision with wall
         if (snake.x < 0 || snake.x >= board.width || snake.y < 0 || snake.y >= board.height) {
             reset();
         }
 
-        // Add the snake's head to the beginning of its cells array
         snake.cells.unshift({ x: snake.x, y: snake.y });
 
-        // Remove the tail cell if the snake's length exceeds the set number of cells
         if (snake.cells.length > snake.setcells) {
             snake.cells.pop();
         }
 
-        // Draw each cell of the snake's body and check for collisions with food
-        ctx.lineWidth = vw(0);
+        ctx.fillStyle = "#4e4838";
+        ctx.strokeStyle = "#716750";
+
         snake.cells.forEach(function (cell, index) {
-            ctx.strokeRect(cell.x + vw(0), cell.y + vw(0), cellsize, cellsize);
+            ctx.fillRect(cell.x, cell.y, cellsize, cellsize);
+            ctx.strokeRect(cell.x, cell.y, cellsize, cellsize);
+
+            // Collision with food
             if (snake.x === food.x && snake.y === food.y) {
                 snake.setcells++;
                 score++;
-                placefood();
                 document.getElementById("score").innerHTML = score;
+                placefood();
             }
-            // Check for collisions between the snake's head and its body
+
+            // Collision with self
             for (var i = index + 1; i < snake.cells.length; i++) {
                 if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
                     reset();
@@ -100,7 +122,6 @@
         });
     }
 
-    // Event listener for keyboard input to control the snake's movement
     document.addEventListener("keydown", function (event) {
         if (event.code === "ArrowUp" && snake.vely === 0) {
             snake.vely = -cellsize;
@@ -117,12 +138,14 @@
         }
     });
 
-    // Function to reset the game state
     function reset() {
         score = 0;
         document.getElementById("score").innerHTML = score;
+
+        // Spawn in the center
         snake.x = 0;
-        snake.y = 0;
+        snake.y = Math.floor((rows / 2)) * cellsize;
+
         snake.velx = cellsize;
         snake.vely = 0;
         snake.cells = [];
@@ -130,7 +153,6 @@
         placefood();
     }
 
-    // Function to randomly place food on the board
     function placefood() {
         var validPosition = false;
         while (!validPosition) {
@@ -146,9 +168,8 @@
         }
     }
 
-    // Function to generate a random integer within a specified range
     function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min)) + min;
     }
-
 })();
+
